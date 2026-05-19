@@ -44,36 +44,37 @@
     z-index: 200;
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     padding: 10px 16px;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.97);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--green);
+    border-bottom: 3px solid var(--green);
   }
   .lang-btn {
     background: none;
-    border: 1px solid var(--purple);
-    color: var(--muted);
+    border: 2px solid var(--purple);
+    color: var(--purple-deep);
     font-family: 'Jost', sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 5px 16px;
+    letter-spacing: 1px;
+    padding: 7px 20px;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 30px;
     transition: all .25s;
+    white-space: nowrap;
   }
   .lang-btn.active, .lang-btn:hover {
-    background: var(--purple);
-    border-color: var(--purple);
+    background: var(--purple-deep);
+    border-color: var(--purple-deep);
     color: #fff;
+    box-shadow: 0 3px 12px rgba(107,79,160,.25);
   }
 
   /* TAB NAV */
   .tab-nav {
     position: fixed;
-    top: 44px; left: 0; right: 0;
+    top: 52px; left: 0; right: 0;
     z-index: 199;
     display: flex;
     justify-content: center;
@@ -108,7 +109,7 @@
 
   /* HERO */
   .hero {
-    padding: 108px 24px 56px;
+    padding: 118px 24px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -116,12 +117,14 @@
   }
 
   .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 5vw, 38px);
+    font-style: italic;
+    letter-spacing: 2px;
+    color: var(--purple-deep);
+    margin-bottom: 12px;
     animation: riseUp .7s ease both;
+    font-weight: 300;
   }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
@@ -186,7 +189,7 @@
   }
 
   .sec-label {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--purple);
@@ -247,7 +250,7 @@
     line-height: 1.2;
   }
   .cat-tagline {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--green);
     letter-spacing: .5px;
     margin-top: 2px;
@@ -311,8 +314,8 @@
     border: 1px solid rgba(74,124,89,.3);
     border-radius: 50px;
     padding: 5px 14px;
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--green);
     margin-bottom: 14px;
@@ -339,9 +342,9 @@
     background: var(--green);
     color: #fff;
     font-family: 'Jost', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     padding: 13px 28px;
     border-radius: 50px;
@@ -437,7 +440,7 @@
 
   /* HISTORY PAGE */
   .hist-hero {
-    padding: 108px 24px 56px;
+    padding: 118px 24px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -579,7 +582,7 @@
     border-radius: 50%;
     background: var(--purple-deep);
     color: #fff;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     font-family: 'Jost', sans-serif;
     flex-shrink: 0;
@@ -603,9 +606,9 @@
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('es',this)">ES</button>
-  <button class="lang-btn" onclick="setLang('en',this)">EN</button>
-  <button class="lang-btn" onclick="setLang('de',this)">DE</button>
+  <button class="lang-btn active" onclick="setLang('es',this)">Español</button>
+  <button class="lang-btn" onclick="setLang('en',this)">English</button>
+  <button class="lang-btn" onclick="setLang('de',this)">Deutsch</button>
 </div>
 
 <!-- TAB NAV -->
@@ -657,7 +660,7 @@
 
   <p class="hero-eyebrow">Andrea Valentina &amp; César</p>
 
-  <h1 class="hero-title">
+  <h1 class="hero-title" style="margin-bottom:8px;">
     <span data-lang-inline="es"><em>Lista de</em><br/>Regalos</span>
     <span data-lang-inline="en"><em>Gift</em><br/>Registry</span>
     <span data-lang-inline="de"><em>Geschenke</em><br/>Wunschliste</span>
@@ -1098,7 +1101,58 @@
 
     <!-- India -->
     <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
-      <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=300&h=280&fit=crop&crop=center" alt="Indian wedding attire" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:100%;min-height:220px;flex-shrink:0;background:#fdf0e8;">
+        <!-- Background -->
+        <rect width="200" height="280" fill="#fdf0e8"/>
+        <!-- Decorative border motif -->
+        <rect x="0" y="0" width="200" height="8" fill="#c0392b"/>
+        <rect x="0" y="272" width="200" height="8" fill="#c0392b"/>
+        <!-- Body / sari drape -->
+        <ellipse cx="100" cy="200" rx="55" ry="70" fill="#c0392b"/>
+        <!-- Sari pallu folds -->
+        <path d="M55 160 Q70 140 85 165 Q90 180 80 195" fill="#a93226" opacity="0.7"/>
+        <path d="M65 155 Q80 135 95 160 Q100 175 90 195" fill="#922b21" opacity="0.5"/>
+        <!-- Gold border on sari -->
+        <path d="M55 160 Q100 130 145 160 L145 230 Q100 250 55 230 Z" fill="none" stroke="#d4ac0d" stroke-width="3"/>
+        <!-- Gold embroidery dots -->
+        <circle cx="80" cy="185" r="3" fill="#d4ac0d"/>
+        <circle cx="100" cy="175" r="3" fill="#d4ac0d"/>
+        <circle cx="120" cy="185" r="3" fill="#d4ac0d"/>
+        <circle cx="90" cy="200" r="2.5" fill="#d4ac0d"/>
+        <circle cx="110" cy="200" r="2.5" fill="#d4ac0d"/>
+        <!-- Blouse / choli -->
+        <path d="M75 150 Q100 140 125 150 L130 175 Q100 165 70 175 Z" fill="#8e1a0e"/>
+        <!-- Neck and head -->
+        <ellipse cx="100" cy="130" rx="18" ry="22" fill="#e8c49a"/>
+        <!-- Hair with bun -->
+        <ellipse cx="100" cy="112" rx="18" ry="14" fill="#3d2b1f"/>
+        <circle cx="100" cy="100" r="11" fill="#3d2b1f"/>
+        <!-- Bindi -->
+        <circle cx="100" cy="118" r="3.5" fill="#c0392b"/>
+        <!-- Maang tikka (head jewelry) -->
+        <circle cx="100" cy="100" r="4" fill="#d4ac0d"/>
+        <line x1="100" y1="104" x2="100" y2="116" stroke="#d4ac0d" stroke-width="1.5"/>
+        <!-- Earrings -->
+        <circle cx="82" cy="130" r="4" fill="#d4ac0d"/>
+        <ellipse cx="82" cy="138" rx="3" ry="5" fill="#d4ac0d"/>
+        <circle cx="118" cy="130" r="4" fill="#d4ac0d"/>
+        <ellipse cx="118" cy="138" rx="3" ry="5" fill="#d4ac0d"/>
+        <!-- Necklace -->
+        <path d="M85 148 Q100 158 115 148" fill="none" stroke="#d4ac0d" stroke-width="2.5"/>
+        <circle cx="100" cy="156" r="4" fill="#d4ac0d"/>
+        <!-- Bangles on arms -->
+        <ellipse cx="68" cy="170" rx="6" ry="3" fill="none" stroke="#d4ac0d" stroke-width="2"/>
+        <ellipse cx="68" cy="176" rx="6" ry="3" fill="none" stroke="#c0392b" stroke-width="2"/>
+        <ellipse cx="132" cy="170" rx="6" ry="3" fill="none" stroke="#d4ac0d" stroke-width="2"/>
+        <ellipse cx="132" cy="176" rx="6" ry="3" fill="none" stroke="#c0392b" stroke-width="2"/>
+        <!-- Feet with anklets -->
+        <ellipse cx="85" cy="265" rx="12" ry="6" fill="#e8c49a"/>
+        <ellipse cx="115" cy="265" rx="12" ry="6" fill="#e8c49a"/>
+        <path d="M73 265 Q85 268 97 265" fill="none" stroke="#d4ac0d" stroke-width="1.5"/>
+        <path d="M103 265 Q115 268 127 265" fill="none" stroke="#d4ac0d" stroke-width="1.5"/>
+        <!-- Label -->
+        <text x="100" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#fff" font-style="italic">Sari nupcial · India</text>
+      </svg>
       <div style="padding:24px 28px;">
         <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
           <span data-lang-inline="es">🇮🇳 India</span>
@@ -1133,12 +1187,100 @@
         <p class="timeline-body" data-lang="en">The bride wears the shiromuku, a completely white kimono symbolizing purity and willingness to take on the new family's colors. The groom wears dark gray hakama. The Shinto ceremony connects past with future.</p>
         <p class="timeline-body" data-lang="de">Die Braut trägt das Shiromuku, einen komplett weißen Kimono, der Reinheit und die Bereitschaft symbolisiert, die Farben der neuen Familie anzunehmen. Der Bräutigam trägt dunkelgraue Hakama. Die shintoistische Zeremonie verbindet Vergangenheit mit Zukunft.</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=300&h=280&fit=crop&crop=center" alt="Japanese wedding kimono" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:100%;min-height:220px;flex-shrink:0;background:#f5f0f8;">
+        <rect width="200" height="280" fill="#f5f0f8"/>
+        <!-- Red accent top -->
+        <rect x="0" y="0" width="200" height="7" fill="#c0392b"/>
+        <!-- White kimono body -->
+        <path d="M60 155 L50 270 L150 270 L140 155 Q100 140 60 155 Z" fill="#ffffff" stroke="#e0d5e8" stroke-width="1.5"/>
+        <!-- Kimono overlapping layers (juuni-hitoe effect) -->
+        <path d="M65 160 L57 270 L68 270 L74 160 Z" fill="#e8e0f0"/>
+        <path d="M135 160 L143 270 L132 270 L126 160 Z" fill="#e8e0f0"/>
+        <!-- Obi (wide sash) -->
+        <rect x="62" y="175" width="76" height="35" rx="3" fill="#c8a0c8"/>
+        <rect x="62" y="175" width="76" height="5" fill="#b088b0"/>
+        <!-- Obi bow at back (musubi) -->
+        <ellipse cx="100" cy="168" rx="22" ry="12" fill="#c8a0c8" opacity="0.6"/>
+        <!-- Kimono collar layers (white on white with subtle line) -->
+        <path d="M85 155 L100 190 L115 155" fill="none" stroke="#c8bcd4" stroke-width="2"/>
+        <path d="M88 155 L100 183 L112 155" fill="none" stroke="#e0d5ea" stroke-width="1.5"/>
+        <!-- Wisteria / pine pattern on kimono -->
+        <circle cx="80" cy="210" r="5" fill="#d4b8d4" opacity="0.6"/>
+        <circle cx="78" cy="220" r="4" fill="#c8a0c8" opacity="0.5"/>
+        <circle cx="83" cy="218" r="3" fill="#b490b4" opacity="0.5"/>
+        <circle cx="120" cy="215" r="5" fill="#d4b8d4" opacity="0.6"/>
+        <circle cx="122" cy="225" r="4" fill="#c8a0c8" opacity="0.5"/>
+        <circle cx="117" cy="223" r="3" fill="#b490b4" opacity="0.5"/>
+        <!-- Neck -->
+        <rect x="90" y="138" width="20" height="20" rx="8" fill="#f0d8bc"/>
+        <!-- Head -->
+        <ellipse cx="100" cy="125" rx="17" ry="19" fill="#f0d8bc"/>
+        <!-- Hair - traditional shimada style -->
+        <path d="M83 118 Q100 100 117 118 Q115 108 100 104 Q85 108 83 118 Z" fill="#2c1a0e"/>
+        <ellipse cx="100" cy="107" rx="10" ry="8" fill="#2c1a0e"/>
+        <!-- Kanzashi (hair ornament) -->
+        <line x1="88" y1="106" x2="78" y2="98" stroke="#d4ac0d" stroke-width="2"/>
+        <circle cx="76" cy="97" r="4" fill="#c0392b"/>
+        <line x1="112" y1="106" x2="120" y2="96" stroke="#d4ac0d" stroke-width="2"/>
+        <circle cx="122" cy="95" r="3" fill="#f5a0a0"/>
+        <!-- Face details -->
+        <ellipse cx="93" cy="127" rx="2" ry="2.5" fill="#2c1a0e" opacity="0.6"/>
+        <ellipse cx="107" cy="127" rx="2" ry="2.5" fill="#2c1a0e" opacity="0.6"/>
+        <path d="M95 134 Q100 137 105 134" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+        <!-- Tabi (white socks) at bottom -->
+        <ellipse cx="83" cy="268" rx="11" ry="6" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+        <ellipse cx="117" cy="268" rx="11" ry="6" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+        <!-- Label -->
+        <text x="100" y="14" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#c0392b" font-style="italic">Shiromuku · Japón</text>
+      </svg>
     </div>
 
     <!-- Nigeria -->
     <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
-      <img src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=300&h=280&fit=crop&crop=center" alt="Nigerian wedding attire" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" style="width:200px;height:100%;min-height:220px;flex-shrink:0;background:#fff8e8;">
+        <rect width="200" height="280" fill="#fff8e8"/>
+        <rect x="0" y="0" width="200" height="7" fill="#1a7a3c"/>
+        <!-- Aso-oke fabric body (iro wrap) - vibrant pattern -->
+        <path d="M55 165 L48 270 L152 270 L145 165 Q100 148 55 165 Z" fill="#e67e22"/>
+        <!-- Fabric stripes (aso-oke weave pattern) -->
+        <line x1="55" y1="165" x2="48" y2="270" stroke="#c0392b" stroke-width="5" opacity="0.4"/>
+        <line x1="72" y1="160" x2="67" y2="270" stroke="#d4ac0d" stroke-width="4" opacity="0.5"/>
+        <line x1="90" y1="156" x2="88" y2="270" stroke="#1a7a3c" stroke-width="3" opacity="0.4"/>
+        <line x1="110" y1="156" x2="112" y2="270" stroke="#1a7a3c" stroke-width="3" opacity="0.4"/>
+        <line x1="128" y1="160" x2="133" y2="270" stroke="#d4ac0d" stroke-width="4" opacity="0.5"/>
+        <line x1="145" y1="165" x2="152" y2="270" stroke="#c0392b" stroke-width="5" opacity="0.4"/>
+        <!-- Buba (top blouse) -->
+        <path d="M68 148 Q100 136 132 148 L138 170 Q100 158 62 170 Z" fill="#c0392b"/>
+        <!-- Buba stripe pattern -->
+        <line x1="80" y1="140" x2="77" y2="170" stroke="#d4ac0d" stroke-width="2.5" opacity="0.6"/>
+        <line x1="100" y1="137" x2="100" y2="170" stroke="#d4ac0d" stroke-width="2.5" opacity="0.6"/>
+        <line x1="120" y1="140" x2="123" y2="170" stroke="#d4ac0d" stroke-width="2.5" opacity="0.6"/>
+        <!-- Neck -->
+        <rect x="91" y="130" width="18" height="18" rx="7" fill="#7d5a3c"/>
+        <!-- Head -->
+        <ellipse cx="100" cy="118" rx="18" ry="20" fill="#7d5a3c"/>
+        <!-- Gele (head wrap) - elaborate tied fabric -->
+        <path d="M78 110 Q100 88 122 110 Q130 120 122 128 Q100 120 78 128 Q70 120 78 110 Z" fill="#1a7a3c"/>
+        <!-- Gele folds and volume -->
+        <path d="M80 108 Q100 92 120 108 Q115 96 100 92 Q85 96 80 108 Z" fill="#e67e22"/>
+        <path d="M82 106 Q100 93 118 106" fill="none" stroke="#d4ac0d" stroke-width="2"/>
+        <!-- Gele knot/bow at front-side -->
+        <ellipse cx="122" cy="108" rx="12" ry="8" fill="#c0392b" transform="rotate(-20 122 108)"/>
+        <ellipse cx="124" cy="104" rx="8" ry="5" fill="#e67e22" transform="rotate(-20 124 104)"/>
+        <!-- Coral bead necklace (traditional) -->
+        <path d="M83 144 Q100 154 117 144" fill="none" stroke="#c0392b" stroke-width="4"/>
+        <path d="M86 148 Q100 157 114 148" fill="none" stroke="#e67e22" stroke-width="3"/>
+        <!-- Coral bead earrings -->
+        <rect x="77" y="122" width="5" height="14" rx="2" fill="#c0392b"/>
+        <rect x="118" y="122" width="5" height="14" rx="2" fill="#c0392b"/>
+        <!-- Gold bangles -->
+        <ellipse cx="63" cy="168" rx="7" ry="3.5" fill="none" stroke="#d4ac0d" stroke-width="2.5"/>
+        <ellipse cx="63" cy="174" rx="7" ry="3.5" fill="none" stroke="#d4ac0d" stroke-width="2.5"/>
+        <ellipse cx="137" cy="168" rx="7" ry="3.5" fill="none" stroke="#d4ac0d" stroke-width="2.5"/>
+        <ellipse cx="137" cy="174" rx="7" ry="3.5" fill="none" stroke="#d4ac0d" stroke-width="2.5"/>
+        <!-- Label -->
+        <text x="100" y="15" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#1a7a3c" font-style="italic">Aso-oke &amp; Gele · Nigeria</text>
+      </svg>
       <div style="padding:24px 28px;">
         <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
           <span data-lang-inline="es">🇳🇬 Nigeria / África Occidental</span>
