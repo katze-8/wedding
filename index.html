@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Andrea Valentina & César · 29.07.2026</title>
+<title>Andrea Valentina & César · 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -22,7 +22,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--cream);
+    background: var(--lilac-light);
     color: var(--text);
     font-family: 'Jost', sans-serif;
     font-weight: 300;
@@ -38,13 +38,13 @@
     justify-content: center;
     gap: 8px;
     padding: 10px 16px;
-    background: rgba(253,248,242,0.95);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--blush);
+    border-bottom: 2px solid var(--gold);
   }
   .lang-btn {
     background: none;
-    border: 1px solid var(--blush);
+    border: 1px solid var(--purple);
     color: var(--muted);
     font-family: 'Jost', sans-serif;
     font-size: 10px;
@@ -57,8 +57,8 @@
     transition: all .25s;
   }
   .lang-btn.active, .lang-btn:hover {
-    background: var(--rose);
-    border-color: var(--rose);
+    background: var(--purple);
+    border-color: var(--purple);
     color: #fff;
   }
 
@@ -70,9 +70,9 @@
     display: flex;
     justify-content: center;
     gap: 0;
-    background: rgba(253,248,242,0.97);
+    background: rgba(255,255,255,0.97);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--blush);
+    border-bottom: 1px solid var(--lilac-dark);
   }
   .tab-btn {
     background: none;
@@ -90,15 +90,14 @@
     white-space: nowrap;
   }
   .tab-btn.active {
-    color: var(--rose);
-    border-bottom-color: var(--rose);
+    color: var(--purple);
+    border-bottom-color: var(--gold);
   }
-  .tab-btn:hover:not(.active) { color: var(--deep); }
+  .tab-btn:hover:not(.active) { color: var(--purple-deep); }
 
   .tab-page { display: none; }
   .tab-page.active { display: block; }
 
-  /* adjust hero top padding for 2 fixed bars */
   .hero { padding-top: 108px !important; }
 
   /* ── HISTORY PAGE ── */
@@ -107,9 +106,8 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to bottom, #f0ebe0, var(--cream));
+    background: linear-gradient(to bottom, var(--lilac), var(--lilac-light));
   }
-  .hist-hero .botanical-arch { opacity: .5; }
 
   .timeline {
     max-width: 760px;
@@ -147,126 +145,57 @@
     top: 18px;
     bottom: -48px;
     width: 1px;
-    background: linear-gradient(to bottom, var(--blush), transparent);
+    background: linear-gradient(to bottom, var(--gold), transparent);
   }
   .timeline-dot {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: var(--rose);
-    border: 3px solid var(--cream);
-    box-shadow: 0 0 0 1px var(--blush);
+    background: var(--purple);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--gold);
     flex-shrink: 0;
     margin-top: 4px;
   }
 
-  /* reuse grid for content */
   .timeline-content { grid-column: 2; }
   .timeline-card {
     background: var(--white);
-    border: 1px solid var(--blush);
+    border: 2px solid var(--gold);
     border-radius: 16px;
     padding: 24px 28px;
     transition: box-shadow .3s;
+    overflow: hidden;
   }
   .timeline-card:hover {
-    box-shadow: 0 6px 24px rgba(196,112,90,.1);
+    box-shadow: 0 6px 24px rgba(155,127,191,.15);
+  }
+  .timeline-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
   }
   .timeline-era {
     font-size: 9px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--sage);
+    color: var(--purple);
     margin-bottom: 6px;
   }
   .timeline-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(20px, 3.5vw, 26px);
-    color: var(--deep);
+    color: var(--purple-deep);
     margin-bottom: 10px;
     line-height: 1.2;
   }
-  .timeline-title em { font-style: italic; color: var(--rose); }
+  .timeline-title em { font-style: italic; color: var(--gold); }
   .timeline-body {
     font-size: 14px;
     color: var(--muted);
     line-height: 1.85;
-  }
-
-  /* attire grid */
-  .attire-section {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 20px 80px;
-  }
-  .attire-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
-    margin-top: 32px;
-  }
-  .attire-card {
-    background: var(--white);
-    border: 1px solid var(--blush);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all .3s;
-  }
-  .attire-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(196,112,90,.12);
-  }
-  .attire-flag {
-    height: 6px;
-  }
-  .attire-body { padding: 20px 22px; }
-  .attire-country {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .attire-emoji { font-size: 22px; }
-  .attire-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: var(--deep);
-  }
-  .attire-garment {
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .attire-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.75;
-  }
-  .attire-bride, .attire-groom {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  .attire-role {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-  .attire-role.bride { color: var(--rose); }
-  .attire-role.groom { color: var(--sage); }
-
-  @media (max-width: 500px) {
-    .timeline-item { grid-template-columns: 60px 1fr; gap: 14px; }
-    .timeline-card { padding: 18px 16px; }
-    .tab-btn { padding: 10px 14px; font-size: 9px; }
-    .attire-grid { grid-template-columns: 1fr; }
   }
 
   /* ── HERO ── */
@@ -275,24 +204,23 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to bottom, var(--parchment), var(--cream));
+    background: linear-gradient(to bottom, var(--lilac), var(--lilac-light));
   }
 
-  /* Inline SVG botanical arch */
   .botanical-arch {
     position: absolute;
     top: 0; left: 50%;
     transform: translateX(-50%);
     width: min(700px, 100vw);
     pointer-events: none;
-    opacity: .6;
+    opacity: .4;
   }
 
   .hero-eyebrow {
     font-size: 10px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--sage);
+    color: var(--purple);
     margin-bottom: 16px;
     animation: riseUp .7s ease both;
   }
@@ -301,25 +229,11 @@
     font-size: clamp(42px, 9vw, 80px);
     font-weight: 300;
     line-height: 1.0;
-    color: var(--deep);
+    color: var(--purple-deep);
     animation: riseUp .8s .05s ease both;
   }
-  .hero-title em { font-style: italic; color: var(--rose); }
-  .hero-amp {
-    display: block;
-    font-size: clamp(28px, 5vw, 52px);
-    color: var(--gold);
-    margin: 2px 0;
-  }
-  .hero-sub {
-    margin-top: 22px;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    animation: riseUp .9s .15s ease both;
-  }
+  .hero-title em { font-style: italic; color: var(--gold); }
 
-  /* petal divider */
   .petal-line {
     display: flex;
     align-items: center;
@@ -332,7 +246,7 @@
     content: '';
     width: 80px;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--blush));
+    background: linear-gradient(to right, transparent, var(--gold));
   }
   .petal-line::after { transform: scaleX(-1); }
   .petal-center { font-size: 18px; }
@@ -355,35 +269,26 @@
     padding: 0 20px 80px;
   }
 
-  /* ── SECTION HEADING ── */
   .sec-label {
     font-size: 9px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--sage);
+    color: var(--purple);
     margin-bottom: 8px;
   }
   .sec-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 300;
-    color: var(--deep);
+    color: var(--purple-deep);
     margin-bottom: 20px;
   }
-  .sec-title em { font-style: italic; color: var(--rose); }
-
-  hr.sep {
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--blush), transparent);
-    margin: 48px auto;
-    max-width: 320px;
-  }
+  .sec-title em { font-style: italic; color: var(--gold); }
 
   /* ── AMAZON FEATURE CARD ── */
   .amazon-card {
     background: var(--white);
-    border: 1.5px solid var(--blush);
+    border: 2px solid var(--gold);
     border-radius: 20px;
     padding: 36px 32px;
     margin-bottom: 48px;
@@ -396,31 +301,31 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
-    background: linear-gradient(to right, var(--rose), var(--gold), var(--sage));
+    background: linear-gradient(to right, var(--purple), var(--gold), var(--purple));
   }
   .amazon-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #fff8f0;
-    border: 1px solid #f0c080;
+    background: var(--lilac);
+    border: 1px solid var(--gold);
     border-radius: 50px;
     padding: 6px 16px;
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #a06820;
+    color: var(--purple-deep);
     margin-bottom: 20px;
   }
   .amazon-badge svg { width: 16px; height: 16px; }
   .amazon-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(24px, 4vw, 34px);
-    color: var(--deep);
+    color: var(--purple-deep);
     margin-bottom: 12px;
     line-height: 1.2;
   }
-  .amazon-title em { font-style: italic; color: var(--rose); }
+  .amazon-title em { font-style: italic; color: var(--gold); }
   .amazon-desc {
     font-size: 14px;
     color: var(--muted);
@@ -432,7 +337,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--deep);
+    background: var(--purple-deep);
     color: #fff;
     font-family: 'Jost', sans-serif;
     font-size: 11px;
@@ -445,22 +350,22 @@
     transition: all .3s;
   }
   .amazon-btn:hover {
-    background: var(--rose);
+    background: var(--purple);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(196,112,90,.3);
+    box-shadow: 0 8px 24px rgba(155,127,191,.3);
   }
   .amazon-btn svg { width: 16px; height: 16px; }
   .amazon-items-preview {
     margin-top: 24px;
     padding-top: 20px;
-    border-top: 1px solid var(--blush);
+    border-top: 1px solid var(--lilac-dark);
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
   .preview-tag {
-    background: var(--parchment);
-    border: 1px solid var(--blush);
+    background: var(--lilac);
+    border: 1px solid var(--lilac-dark);
     border-radius: 50px;
     padding: 4px 14px;
     font-size: 12px;
@@ -475,13 +380,13 @@
 
   .cat-card {
     background: var(--white);
-    border: 1px solid var(--blush);
+    border: 1px solid var(--lilac-dark);
     border-radius: 16px;
     overflow: hidden;
     transition: box-shadow .3s, transform .3s;
   }
   .cat-card:hover {
-    box-shadow: 0 6px 28px rgba(196,112,90,.1);
+    box-shadow: 0 6px 28px rgba(155,127,191,.15);
     transform: translateY(-2px);
   }
   .cat-header {
@@ -491,12 +396,13 @@
     padding: 20px 24px;
     cursor: pointer;
     user-select: none;
+    background: linear-gradient(135deg, var(--lilac) 0%, var(--lilac-light) 100%);
   }
   .cat-icon {
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: var(--parchment);
+    background: var(--lilac-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -507,19 +413,19 @@
   .cat-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 20px;
-    color: var(--deep);
+    color: var(--purple-deep);
     line-height: 1.2;
   }
   .cat-tagline {
     font-size: 11px;
-    color: var(--sage);
+    color: var(--purple);
     letter-spacing: .5px;
     margin-top: 2px;
   }
   .cat-chevron {
     width: 22px;
     height: 22px;
-    color: var(--blush);
+    color: var(--gold);
     transition: transform .3s;
     flex-shrink: 0;
   }
@@ -528,7 +434,7 @@
   .cat-body {
     display: none;
     padding: 0 24px 24px;
-    border-top: 1px solid var(--blush);
+    border-top: 1px solid var(--lilac-dark);
     margin-top: 0;
   }
   .cat-card.open .cat-body { display: block; }
@@ -547,12 +453,11 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--rose);
+    background: var(--purple);
     margin-top: 7px;
     flex-shrink: 0;
   }
 
-  /* gift card logos row */
   .gc-logos {
     display: flex;
     flex-wrap: wrap;
@@ -563,8 +468,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: var(--parchment);
-    border: 1px solid var(--blush);
+    background: var(--lilac);
+    border: 1px solid var(--lilac-dark);
     border-radius: 8px;
     padding: 6px 14px;
     font-size: 13px;
@@ -573,26 +478,26 @@
     transition: all .2s;
   }
   .gc-logo:hover {
-    border-color: var(--rose);
-    color: var(--rose);
+    border-color: var(--gold);
+    color: var(--purple);
   }
 
-  /* bank info box */
   .bank-box {
-    background: var(--parchment);
+    background: var(--lilac);
     border-radius: 10px;
     padding: 16px 20px;
     margin-top: 14px;
     font-size: 13px;
     color: var(--muted);
     line-height: 1.8;
+    border-left: 4px solid var(--gold);
   }
-  .bank-box strong { color: var(--deep); }
+  .bank-box strong { color: var(--purple-deep); }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--deep);
-    color: rgba(255,255,255,.45);
+    background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 100%);
+    color: rgba(255,255,255,.7);
     text-align: center;
     padding: 44px 24px;
   }
@@ -600,32 +505,11 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     font-style: italic;
-    color: var(--blush);
+    color: var(--gold);
     display: block;
     margin-bottom: 10px;
   }
   footer p { font-size: 12px; letter-spacing: 1.5px; }
-
-  /* ── CONTACT BTN ── */
-  .rsvp-btn {
-    display: inline-block;
-    background: var(--rose);
-    color: #fff;
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 13px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all .3s;
-  }
-  .rsvp-btn:hover {
-    opacity: .85;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(122,148,120,.3);
-  }
 
   /* ── LANG HELPERS ── */
   [data-lang] { display: none; }
@@ -647,6 +531,9 @@
     .amazon-card { padding: 24px 18px; }
     .cat-header { padding: 16px 18px; }
     .cat-body { padding: 0 18px 20px; }
+    .timeline-item { grid-template-columns: 60px 1fr; gap: 14px; }
+    .timeline-card { padding: 18px 16px; }
+    .timeline-image { height: 150px; }
   }
 </style>
 </head>
@@ -678,53 +565,10 @@
 <!-- ════════════════════════════════ -->
 <div id="tab-gifts" class="tab-page active">
 <div class="hero">
-  <!-- Botanical arch SVG -->
-  <svg class="botanical-arch" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Left stem -->
-    <path d="M60 200 C80 140 130 100 190 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
-    <path d="M100 165 C120 120 155 95 180 78" stroke="#7a9478" stroke-width="1" fill="none"/>
-    <!-- Left roses -->
-    <circle cx="190" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
-    <circle cx="190" cy="70" r="9" fill="#c4705a" opacity=".85"/>
-    <circle cx="175" cy="85" r="10" fill="#e8c4b2" opacity=".6"/>
-    <circle cx="175" cy="85" r="5" fill="#c4705a" opacity=".7"/>
-    <!-- Left leaves -->
-    <ellipse cx="165" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(-35 165 95)"/>
-    <ellipse cx="145" cy="110" rx="12" ry="4" fill="#bdd0ba" opacity=".5" transform="rotate(-20 145 110)"/>
-    <ellipse cx="200" cy="88" rx="11" ry="4" fill="#7a9478" opacity=".4" transform="rotate(15 200 88)"/>
-    <!-- Small buds left -->
-    <circle cx="130" cy="140" r="5" fill="#c8a05a" opacity=".6"/>
-    <circle cx="108" cy="158" r="4" fill="#bdd0ba" opacity=".5"/>
-    <!-- Scattered petals left -->
-    <ellipse cx="155" cy="120" rx="4" ry="2" fill="#e8c4b2" opacity=".4" transform="rotate(-25 155 120)"/>
-
-    <!-- Center arch -->
-    <path d="M240 55 Q350 15 460 55" stroke="#c8a05a" stroke-width="1" fill="none" stroke-dasharray="5 5" opacity=".7"/>
-    <!-- Center flower -->
-    <circle cx="350" cy="22" r="10" fill="#e8c4b2" opacity=".65"/>
-    <circle cx="350" cy="22" r="5" fill="#c8a05a" opacity=".75"/>
-    <ellipse cx="336" cy="30" rx="8" ry="3" fill="#bdd0ba" opacity=".45" transform="rotate(20 336 30)"/>
-    <ellipse cx="364" cy="30" rx="8" ry="3" fill="#bdd0ba" opacity=".45" transform="rotate(-20 364 30)"/>
-
-    <!-- Right stem (mirror) -->
-    <path d="M640 200 C620 140 570 100 510 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
-    <path d="M600 165 C580 120 545 95 520 78" stroke="#7a9478" stroke-width="1" fill="none"/>
-    <circle cx="510" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
-    <circle cx="510" cy="70" r="9" fill="#c4705a" opacity=".85"/>
-    <circle cx="525" cy="85" r="10" fill="#e8c4b2" opacity=".6"/>
-    <circle cx="525" cy="85" r="5" fill="#c4705a" opacity=".7"/>
-    <ellipse cx="535" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(35 535 95)"/>
-    <ellipse cx="555" cy="110" rx="12" ry="4" fill="#bdd0ba" opacity=".5" transform="rotate(20 555 110)"/>
-    <ellipse cx="500" cy="88" rx="11" ry="4" fill="#7a9478" opacity=".4" transform="rotate(-15 500 88)"/>
-    <circle cx="570" cy="140" r="5" fill="#c8a05a" opacity=".6"/>
-    <circle cx="592" cy="158" r="4" fill="#bdd0ba" opacity=".5"/>
-    <ellipse cx="545" cy="120" rx="4" ry="2" fill="#e8c4b2" opacity=".4" transform="rotate(25 545 120)"/>
-  </svg>
-
   <p class="hero-eyebrow">
-    <span data-lang-inline="es">Andrea Valentina &amp; César · 29 de julio de 2026</span>
-    <span data-lang-inline="en">Andrea Valentina &amp; César · July 29, 2026</span>
-    <span data-lang-inline="de">Andrea Valentina &amp; César · 29. Juli 2026</span>
+    <span data-lang-inline="es">Andrea Valentina &amp; César · 2026</span>
+    <span data-lang-inline="en">Andrea Valentina &amp; César · 2026</span>
+    <span data-lang-inline="de">Andrea Valentina &amp; César · 2026</span>
   </p>
 
   <h1 class="hero-title">
@@ -734,7 +578,7 @@
   </h1>
 
   <div class="petal-line">
-    <span class="petal-center">🌸</span>
+    <span class="petal-center">💜</span>
   </div>
 
   <p class="hero-note" data-lang="es">Tu presencia es el mejor regalo. Si aun así deseas obsequiarnos algo, aquí encontrarás ideas para cada posibilidad y presupuesto.</p>
@@ -781,9 +625,6 @@
       <span class="preview-tag" data-lang-inline="es">🛏 Dormitorio</span>
       <span class="preview-tag" data-lang-inline="en">🛏 Bedroom</span>
       <span class="preview-tag" data-lang-inline="de">🛏 Schlafzimmer</span>
-      <span class="preview-tag" data-lang-inline="es">🕯 Deco</span>
-      <span class="preview-tag" data-lang-inline="en">🕯 Decor</span>
-      <span class="preview-tag" data-lang-inline="de">🕯 Deko</span>
     </div>
   </div>
 
@@ -829,9 +670,6 @@
             <a class="gc-logo" href="https://www.rewe.de/service/gutscheine/" target="_blank" rel="noopener">🛍 REWE</a>
             <a class="gc-logo" href="https://www.saturn.de/de/geschenkkarten.html" target="_blank" rel="noopener">📱 Saturn</a>
           </div>
-          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="es">💡 <em>Nota:</em> Booking.com no vende gift cards directamente — para viajes, recomendamos Lufthansa o Deutsche Bahn.</p>
-          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="en">💡 <em>Note:</em> Booking.com doesn't sell gift cards directly — for travel, we suggest Lufthansa or Deutsche Bahn.</p>
-          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="de">💡 <em>Hinweis:</em> Booking.com verkauft keine Geschenkkarten direkt — für Reisen empfehlen wir Lufthansa oder Deutsche Bahn.</p>
         </div>
       </div>
     </div>
@@ -868,9 +706,9 @@
               <span data-lang-inline="de">Banküberweisung (IBAN auf Anfrage erhältlich)</span>
             </li>
             <li><span class="item-dot"></span>
-              <span data-lang-inline="es">Sobre en efectivo el día del evento — entregar a familiares directos</span>
-              <span data-lang-inline="en">Cash envelope on the day — hand to close family members</span>
-              <span data-lang-inline="de">Briefumschlag am Hochzeitstag — an enge Familienmitglieder übergeben</span>
+              <span data-lang-inline="es">Sobre en efectivo — entregar a familiares directos</span>
+              <span data-lang-inline="en">Cash envelope — hand to close family members</span>
+              <span data-lang-inline="de">Briefumschlag — an enge Familienmitglieder übergeben</span>
             </li>
           </ul>
           <div class="bank-box" data-lang="es">💌 Para datos bancarios o PayPal, escríbenos directamente. Con gusto te los compartimos.</div>
@@ -982,19 +820,19 @@
       </div>
       <div class="cat-body">
         <div class="cat-body-inner">
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Si tienes una habilidad que puedas ofrecer para la boda o la mudanza, ¡nos encantaría saberlo! Escríbenos.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">If you have a skill you can offer for the wedding or our move, we'd love to hear it! Message us.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Wenn du eine Fähigkeit anbietest, die für die Hochzeit oder den Umzug hilfreich ist, freuen wir uns! Schreib uns.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Si tienes una habilidad que puedas ofrecer, ¡nos encantaría saberlo! Escríbenos.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">If you have a skill you can offer, we'd love to hear it! Message us.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Wenn du eine Fähigkeit anbietest, freuen wir uns! Schreib uns.</p>
           <ul class="item-list">
             <li><span class="item-dot"></span>
-              <span data-lang-inline="es">📸 Fotografía o video el día de la boda (si tienes experiencia)</span>
-              <span data-lang-inline="en">📸 Photography or video on the wedding day (if you have experience)</span>
-              <span data-lang-inline="de">📸 Fotos oder Video am Hochzeitstag (bei Erfahrung)</span>
+              <span data-lang-inline="es">📸 Fotografía o video (si tienes experiencia)</span>
+              <span data-lang-inline="en">📸 Photography or video (if you have experience)</span>
+              <span data-lang-inline="de">📸 Fotos oder Video (bei Erfahrung)</span>
             </li>
             <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🎨 Decoración floral o ambiental para la recepción</span>
-              <span data-lang-inline="en">🎨 Floral or ambient decoration for the reception</span>
-              <span data-lang-inline="de">🎨 Blumen- oder Raumdekoration für den Empfang</span>
+              <span data-lang-inline="es">🎨 Decoración floral o ambiental</span>
+              <span data-lang-inline="en">🎨 Floral or ambient decoration</span>
+              <span data-lang-inline="de">🎨 Blumen- oder Raumdekoration</span>
             </li>
             <li><span class="item-dot"></span>
               <span data-lang-inline="es">🎂 Pastel o postres especiales</span>
@@ -1002,9 +840,9 @@
               <span data-lang-inline="de">🎂 Besondere Kuchen oder Desserts</span>
             </li>
             <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🎵 Música o DJ para la celebración</span>
-              <span data-lang-inline="en">🎵 Music or DJ for the celebration</span>
-              <span data-lang-inline="de">🎵 Musik oder DJ für die Feier</span>
+              <span data-lang-inline="es">🎵 Música o DJ</span>
+              <span data-lang-inline="en">🎵 Music or DJ</span>
+              <span data-lang-inline="de">🎵 Musik oder DJ</span>
             </li>
             <li><span class="item-dot"></span>
               <span data-lang-inline="es">🚗 Transporte o logística</span>
@@ -1026,94 +864,112 @@
 <!-- ════════════════════════════════ -->
 <div id="tab-history" class="tab-page">
 <div class="hist-hero">
-  <svg class="botanical-arch" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M60 200 C80 140 130 100 190 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
-    <circle cx="190" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
-    <circle cx="190" cy="70" r="9" fill="#c4705a" opacity=".85"/>
-    <path d="M640 200 C620 140 570 100 510 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
-    <circle cx="510" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
-    <circle cx="510" cy="70" r="9" fill="#c4705a" opacity=".85"/>
-  </svg>
-
   <h1 class="hero-title">
-    <span data-lang-inline="es"><em>Nuestra</em><br/>Historia</span>
-    <span data-lang-inline="en"><em>Our</em><br/>Story</span>
-    <span data-lang-inline="de"><em>Unsere</em><br/>Geschichte</span>
+    <span data-lang-inline="es"><em>La</em><br/>Historia del Matrimonio</span>
+    <span data-lang-inline="en"><em>The</em><br/>History of Marriage</span>
+    <span data-lang-inline="de"><em>Die</em><br/>Geschichte der Ehe</span>
   </h1>
+  <p class="hero-note" style="margin-top: 24px;" data-lang="es">Una tradición de amor, compromiso y unión a través de los siglos</p>
+  <p class="hero-note" style="margin-top: 24px;" data-lang="en">A tradition of love, commitment and union through the centuries</p>
+  <p class="hero-note" style="margin-top: 24px;" data-lang="de">Eine Tradition der Liebe, des Engagements und der Einheit durch die Jahrhunderte</p>
 </div>
 
 <section class="timeline">
   <div class="timeline-item">
-    <div class="timeline-year"><span data-lang-inline="es">2018</span><span data-lang-inline="en">2018</span><span data-lang-inline="de">2018</span></div>
+    <div class="timeline-year"><span data-lang-inline="es">Antigüedad</span><span data-lang-inline="en">Antiquity</span><span data-lang-inline="de">Altertum</span></div>
     <div class="timeline-dot-col">
       <div class="timeline-line"></div>
       <div class="timeline-dot"></div>
     </div>
     <div class="timeline-content">
       <div class="timeline-card">
-        <div class="timeline-era" data-lang="es">El Comienzo</div>
-        <div class="timeline-era" data-lang="en">The Beginning</div>
-        <div class="timeline-era" data-lang="de">Der Anfang</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">Nos conocemos</span><span data-lang-inline="en">We met</span><span data-lang-inline="de">Wir haben uns kennengelernt</span></h3>
-        <p class="timeline-body" data-lang="es">Aquí comenzó todo. Dos corazones que se encontraron en el momento perfecto.</p>
-        <p class="timeline-body" data-lang="en">It all started here. Two hearts that found each other at the perfect time.</p>
-        <p class="timeline-body" data-lang="de">Es war hier, wo alles anfing. Zwei Herzen, die sich zur perfekten Zeit fanden.</p>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop" alt="Ancient marriage" class="timeline-image">
+        <div class="timeline-era" data-lang="es">Los Inicios</div>
+        <div class="timeline-era" data-lang="en">The Beginnings</div>
+        <div class="timeline-era" data-lang="de">Die Anfänge</div>
+        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio en la antigüedad</span><span data-lang-inline="en">Marriage in antiquity</span><span data-lang-inline="de">Die Ehe in der Antike</span></h3>
+        <p class="timeline-body" data-lang="es">En las civilizaciones antiguas, el matrimonio era una institución fundamental que unía familias y comunidades. Griegos, romanos y otras culturas celebraban la unión con rituales sagrados que simbolizaban el compromiso eterno.</p>
+        <p class="timeline-body" data-lang="en">In ancient civilizations, marriage was a fundamental institution that united families and communities. Greeks, Romans and other cultures celebrated the union with sacred rituals that symbolized eternal commitment.</p>
+        <p class="timeline-body" data-lang="de">In den antiken Zivilisationen war die Ehe eine grundlegende Institution, die Familien und Gemeinden vereinte. Griechen, Römer und andere Kulturen feierten die Vereinigung mit heiligen Ritualen, die ewige Verpflichtung symbolisierten.</p>
       </div>
     </div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year"><span data-lang-inline="es">2020</span><span data-lang-inline="en">2020</span><span data-lang-inline="de">2020</span></div>
+    <div class="timeline-year"><span data-lang-inline="es">Edad Media</span><span data-lang-inline="en">Middle Ages</span><span data-lang-inline="de">Mittelalter</span></div>
     <div class="timeline-dot-col">
       <div class="timeline-line"></div>
       <div class="timeline-dot"></div>
     </div>
     <div class="timeline-content">
       <div class="timeline-card">
-        <div class="timeline-era" data-lang="es">Un Paso Adelante</div>
-        <div class="timeline-era" data-lang="en">Moving Forward</div>
-        <div class="timeline-era" data-lang="de">Ein Schritt nach vorne</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">Nuestro primer hogar juntos</span><span data-lang-inline="en">Our first home together</span><span data-lang-inline="de">Unser erstes gemeinsames Zuhause</span></h3>
-        <p class="timeline-body" data-lang="es">Decidimos compartir un espacio, construir nuestro nido de amor.</p>
-        <p class="timeline-body" data-lang="en">We decided to share a space, to build our love nest.</p>
-        <p class="timeline-body" data-lang="de">Wir beschlossen, einen Raum zu teilen und unser Liebenest zu bauen.</p>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop" alt="Medieval wedding" class="timeline-image">
+        <div class="timeline-era" data-lang="es">Tradición y Fe</div>
+        <div class="timeline-era" data-lang="en">Tradition and Faith</div>
+        <div class="timeline-era" data-lang="de">Tradition und Glaube</div>
+        <h3 class="timeline-title"><span data-lang-inline="es">La consagración religiosa</span><span data-lang-inline="en">Religious consecration</span><span data-lang-inline="de">Die religiöse Weihe</span></h3>
+        <p class="timeline-body" data-lang="es">Durante la Edad Media, la Iglesia transformó el matrimonio en un sacramento sagrado. Las ceremonias se realizaban en templos con testigos, estableciendo así el matrimonio como un acto solemne y divino ante Dios.</p>
+        <p class="timeline-body" data-lang="en">During the Middle Ages, the Church transformed marriage into a sacred sacrament. Ceremonies were performed in temples with witnesses, establishing marriage as a solemn and divine act before God.</p>
+        <p class="timeline-body" data-lang="de">Im Mittelalter verwandelte die Kirche die Ehe in ein heiliges Sakrament. Zeremonien wurden in Tempeln mit Zeugen durchgeführt und etablierten die Ehe als feierlicher und göttlicher Akt vor Gott.</p>
       </div>
     </div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year"><span data-lang-inline="es">2024</span><span data-lang-inline="en">2024</span><span data-lang-inline="de">2024</span></div>
+    <div class="timeline-year"><span data-lang-inline="es">Renacimiento</span><span data-lang-inline="en">Renaissance</span><span data-lang-inline="de">Renaissance</span></div>
     <div class="timeline-dot-col">
       <div class="timeline-line"></div>
       <div class="timeline-dot"></div>
     </div>
     <div class="timeline-content">
       <div class="timeline-card">
-        <div class="timeline-era" data-lang="es">El Sí</div>
-        <div class="timeline-era" data-lang="en">The Yes</div>
-        <div class="timeline-era" data-lang="de">Das Ja</div>
-        <h3 class="timeline-title"><span data-lang-inline="es"><em>¡</em>Nos comprometemos!</span><span data-lang-inline="en">We <em>got engaged!</em></span><span data-lang-inline="de">Wir sind <em>verlobt!</em></span></h3>
-        <p class="timeline-body" data-lang="es">El momento llegó. Con una propuesta llena de amor, decidimos pasar el resto de nuestras vidas juntos.</p>
-        <p class="timeline-body" data-lang="en">The moment came. With a proposal full of love, we decided to spend the rest of our lives together.</p>
-        <p class="timeline-body" data-lang="de">Der Moment kam. Mit einem Antrag voller Liebe beschlossen wir, den Rest unseres Lebens zusammen zu verbringen.</p>
+        <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=400&h=200&fit=crop" alt="Renaissance celebration" class="timeline-image">
+        <div class="timeline-era" data-lang="es">Celebración y Arte</div>
+        <div class="timeline-era" data-lang="en">Celebration and Art</div>
+        <div class="timeline-era" data-lang="de">Feier und Kunst</div>
+        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio como celebración</span><span data-lang-inline="en">Marriage as celebration</span><span data-lang-inline="de">Die Ehe als Feier</span></h3>
+        <p class="timeline-body" data-lang="es">El Renacimiento elevó la ceremonia matrimonial a una forma de arte. Las celebraciones se volvieron más elaboradas, con fiestas que duraban días, música, danzas y banquetes que reflejaban la importancia del evento y el amor entre los novios.</p>
+        <p class="timeline-body" data-lang="en">The Renaissance elevated the wedding ceremony to an art form. Celebrations became more elaborate, with festivals lasting days, music, dances and banquets reflecting the importance of the event and the love between the newlyweds.</p>
+        <p class="timeline-body" data-lang="de">Die Renaissance erhob die Hochzeitszeremonie zur Kunstform. Feste wurden aufwendiger, mit mehrtägigen Feiern, Musik, Tänzen und Banketten, die die Bedeutung des Ereignisses und die Liebe zwischen den Brautleuten widerspiegelten.</p>
       </div>
     </div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-year"><span data-lang-inline="es">2026</span><span data-lang-inline="en">2026</span><span data-lang-inline="de">2026</span></div>
+    <div class="timeline-year"><span data-lang-inline="es">Siglo XIX</span><span data-lang-inline="en">19th Century</span><span data-lang-inline="de">19. Jahrhundert</span></div>
+    <div class="timeline-dot-col">
+      <div class="timeline-line"></div>
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-content">
+      <div class="timeline-card">
+        <img src="https://images.unsplash.com/photo-1539943128762-de42e49da655?w=400&h=200&fit=crop" alt="Victorian wedding" class="timeline-image">
+        <div class="timeline-era" data-lang="es">Romanticismo y Tradición</div>
+        <div class="timeline-era" data-lang="en">Romanticism and Tradition</div>
+        <div class="timeline-era" data-lang="de">Romantik und Tradition</div>
+        <h3 class="timeline-title"><span data-lang-inline="es">El romanticismo matrimonial</span><span data-lang-inline="en">Matrimonial romanticism</span><span data-lang-inline="de">Der Heiratsroman</span></h3>
+        <p class="timeline-body" data-lang="es">La era victoriana introdujo nuevas tradiciones que persisten hoy: el vestido blanco, los anillos de diamantes y las ceremonias románticas. El matrimonio se celebraba como la culminación del amor romántico y el símbolo del futuro compartido.</p>
+        <p class="timeline-body" data-lang="en">The Victorian era introduced new traditions that persist today: the white dress, diamond rings and romantic ceremonies. Marriage was celebrated as the culmination of romantic love and the symbol of a shared future.</p>
+        <p class="timeline-body" data-lang="de">Die viktorianische Ära führte neue Traditionen ein, die bis heute bestehen: das weiße Kleid, Diamantringe und romantische Zeremonien. Die Ehe wurde als Höhepunkt der romantischen Liebe und Symbol einer gemeinsamen Zukunft gefeiert.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-year"><span data-lang-inline="es">Hoy</span><span data-lang-inline="en">Today</span><span data-lang-inline="de">Heute</span></div>
     <div class="timeline-dot-col">
       <div class="timeline-dot"></div>
     </div>
     <div class="timeline-content">
       <div class="timeline-card">
-        <div class="timeline-era" data-lang="es">El Gran Día</div>
-        <div class="timeline-era" data-lang="en">The Big Day</div>
-        <div class="timeline-era" data-lang="de">Der große Tag</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">¡Nos casamos!</span><span data-lang-inline="en">We're getting married!</span><span data-lang-inline="de">Wir heiraten!</span></h3>
-        <p class="timeline-body" data-lang="es">El 29 de julio de 2026, diremos "sí" ante familia y amigos. ¡Nos encantaría que fueras parte de este momento inolvidable!</p>
-        <p class="timeline-body" data-lang="en">On July 29, 2026, we'll say "yes" before family and friends. We'd love for you to be part of this unforgettable moment!</p>
-        <p class="timeline-body" data-lang="de">Am 29. Juli 2026 werden wir vor Familie und Freunden "Ja" sagen. Wir würden uns freuen, wenn du Teil dieses unvergesslichen Moments bist!</p>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop" alt="Modern wedding" class="timeline-image">
+        <div class="timeline-era" data-lang="es">Amor y Libertad</div>
+        <div class="timeline-era" data-lang="en">Love and Freedom</div>
+        <div class="timeline-era" data-lang="de">Liebe und Freiheit</div>
+        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio moderno</span><span data-lang-inline="en">Modern marriage</span><span data-lang-inline="de">Die moderne Ehe</span></h3>
+        <p class="timeline-body" data-lang="es">Hoy el matrimonio es una expresión personal del amor, donde las parejas crean sus propias tradiciones. Conservamos los rituales que nos inspiran mientras celebramos la libertad de elegir cómo vivir esta hermosa unión, con respeto, compromiso y amor genuino.</p>
+        <p class="timeline-body" data-lang="en">Today marriage is a personal expression of love, where couples create their own traditions. We preserve the rituals that inspire us while celebrating the freedom to choose how to live this beautiful union, with respect, commitment and genuine love.</p>
+        <p class="timeline-body" data-lang="de">Heute ist die Ehe ein persönlicher Ausdruck der Liebe, wo Paare ihre eigenen Traditionen schaffen. Wir bewahren die Rituale, die uns inspirieren, während wir die Freiheit feiern, diese schöne Vereinigung mit Respekt, Engagement und echter Liebe zu gestalten.</p>
       </div>
     </div>
   </div>
@@ -1126,9 +982,9 @@
 <!-- ════════════════════════════════ -->
 <footer>
   <span class="fn">Andrea &amp; César</span>
-  <p data-lang="es">Con amor y gratitud 💕 · 29 de julio de 2026</p>
-  <p data-lang="en">With love and gratitude 💕 · July 29, 2026</p>
-  <p data-lang="de">Mit Liebe und Dankbarkeit 💕 · 29. Juli 2026</p>
+  <p data-lang="es">Con amor y gratitud 💜</p>
+  <p data-lang="en">With love and gratitude 💜</p>
+  <p data-lang="de">Mit Liebe und Dankbarkeit 💜</p>
 </footer>
 
 <script>
@@ -1146,21 +1002,16 @@ function setLang(lang, btn) {
 // TAB NAVIGATION
 // ═══════════════════════════════════════════════════════════
 function setTab(tabName, btn) {
-  // Hide all tabs
   document.querySelectorAll('.tab-page').forEach(tab => {
     tab.classList.remove('active');
   });
-  
-  // Show selected tab
   document.getElementById('tab-' + tabName).classList.add('active');
   
-  // Update button styles
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.remove('active');
   });
   btn.classList.add('active');
   
-  // Save preference
   localStorage.setItem('selectedTab', tabName);
 }
 
@@ -1175,7 +1026,6 @@ function toggle(element) {
 // RESTORE USER PREFERENCES ON PAGE LOAD
 // ═══════════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', function() {
-  // Restore language
   const savedLang = localStorage.getItem('selectedLang') || 'es';
   const langButtons = document.querySelectorAll('.lang-btn');
   langButtons.forEach(btn => {
@@ -1184,7 +1034,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Restore tab
   const savedTab = localStorage.getItem('selectedTab') || 'gifts';
   const tabButtons = document.querySelectorAll('.tab-btn');
   tabButtons.forEach(btn => {
