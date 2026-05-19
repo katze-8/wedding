@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Andrea Valentina & César · 29.07.2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #fdf8f2;
+    --parchment: #f5ede0;
+    --blush: #e8c4b2;
+    --rose: #c4705a;
+    --deep: #6e3d2e;
+    --sage: #7a9478;
+    --sage-light: #bdd0ba;
+    --gold: #c8a05a;
+    --text: #3a2318;
+    --muted: #907060;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── LANG BAR ── */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(253,248,242,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--blush);
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid var(--blush);
+    color: var(--muted);
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all .25s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: #fff;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    position: fixed;
+    top: 44px; left: 0; right: 0;
+    z-index: 199;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: rgba(253,248,242,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--blush);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all .25s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    color: var(--rose);
+    border-bottom-color: var(--rose);
+  }
+  .tab-btn:hover:not(.active) { color: var(--deep); }
+
+  .tab-page { display: none; }
+  .tab-page.active { display: block; }
+
+  /* adjust hero top padding for 2 fixed bars */
+  .hero { padding-top: 108px !important; }
+
+  /* ── HISTORY PAGE ── */
+  .hist-hero {
+    padding: 108px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #f0ebe0, var(--cream));
+  }
+  .hist-hero .botanical-arch { opacity: .5; }
+
+  .timeline {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    animation: riseUp .6s ease both;
+  }
+  .timeline-year {
+    text-align: right;
+    padding-top: 4px;
+  }
+  .timeline-year span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 1px;
+    display: block;
+  }
+  .timeline-dot-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-line {
+    position: absolute;
+    left: 7px;
+    top: 18px;
+    bottom: -48px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--blush), transparent);
+  }
+  .timeline-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--blush);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* reuse grid for content */
+  .timeline-content { grid-column: 2; }
+  .timeline-card {
+    background: var(--white);
+    border: 1px solid var(--blush);
+    border-radius: 16px;
+    padding: 24px 28px;
+    transition: box-shadow .3s;
+  }
+  .timeline-card:hover {
+    box-shadow: 0 6px 24px rgba(196,112,90,.1);
+  }
+  .timeline-era {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3.5vw, 26px);
+    color: var(--deep);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .timeline-title em { font-style: italic; color: var(--rose); }
+  .timeline-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  /* attire grid */
+  .attire-section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .attire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .attire-card {
+    background: var(--white);
+    border: 1px solid var(--blush);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all .3s;
+  }
+  .attire-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(196,112,90,.12);
+  }
+  .attire-flag {
+    height: 6px;
+  }
+  .attire-body { padding: 20px 22px; }
+  .attire-country {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .attire-emoji { font-size: 22px; }
+  .attire-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--deep);
+  }
+  .attire-garment {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .attire-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .attire-bride, .attire-groom {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .attire-role {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .attire-role.bride { color: var(--rose); }
+  .attire-role.groom { color: var(--sage); }
+
+  @media (max-width: 500px) {
+    .timeline-item { grid-template-columns: 60px 1fr; gap: 14px; }
+    .timeline-card { padding: 18px 16px; }
+    .tab-btn { padding: 10px 14px; font-size: 9px; }
+    .attire-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 90px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--parchment), var(--cream));
+  }
+
+  /* Inline SVG botanical arch */
+  .botanical-arch {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(700px, 100vw);
+    pointer-events: none;
+    opacity: .6;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+    animation: riseUp .7s ease both;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 9vw, 80px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--deep);
+    animation: riseUp .8s .05s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--rose); }
+  .hero-amp {
+    display: block;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--gold);
+    margin: 2px 0;
+  }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    animation: riseUp .9s .15s ease both;
+  }
+
+  /* petal divider */
+  .petal-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin: 28px auto;
+    animation: riseUp 1s .2s ease both;
+  }
+  .petal-line::before, .petal-line::after {
+    content: '';
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--blush));
+  }
+  .petal-line::after { transform: scaleX(-1); }
+  .petal-center { font-size: 18px; }
+
+  .hero-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 20px);
+    font-style: italic;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+    animation: riseUp 1s .25s ease both;
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── SECTION HEADING ── */
+  .sec-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 8px;
+  }
+  .sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 300;
+    color: var(--deep);
+    margin-bottom: 20px;
+  }
+  .sec-title em { font-style: italic; color: var(--rose); }
+
+  hr.sep {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--blush), transparent);
+    margin: 48px auto;
+    max-width: 320px;
+  }
+
+  /* ── AMAZON FEATURE CARD ── */
+  .amazon-card {
+    background: var(--white);
+    border: 1.5px solid var(--blush);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    animation: riseUp .8s .3s ease both;
+  }
+  .amazon-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--rose), var(--gold), var(--sage));
+  }
+  .amazon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff8f0;
+    border: 1px solid #f0c080;
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a06820;
+    margin-bottom: 20px;
+  }
+  .amazon-badge svg { width: 16px; height: 16px; }
+  .amazon-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 4vw, 34px);
+    color: var(--deep);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .amazon-title em { font-style: italic; color: var(--rose); }
+  .amazon-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+  .amazon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--deep);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all .3s;
+  }
+  .amazon-btn:hover {
+    background: var(--rose);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196,112,90,.3);
+  }
+  .amazon-btn svg { width: 16px; height: 16px; }
+  .amazon-items-preview {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--blush);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .preview-tag {
+    background: var(--parchment);
+    border: 1px solid var(--blush);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── GIFT CATEGORIES ── */
+  .cats-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .cat-card {
+    background: var(--white);
+    border: 1px solid var(--blush);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow .3s, transform .3s;
+  }
+  .cat-card:hover {
+    box-shadow: 0 6px 28px rgba(196,112,90,.1);
+    transform: translateY(-2px);
+  }
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .cat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--parchment);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .cat-text { flex: 1; }
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--deep);
+    line-height: 1.2;
+  }
+  .cat-tagline {
+    font-size: 11px;
+    color: var(--sage);
+    letter-spacing: .5px;
+    margin-top: 2px;
+  }
+  .cat-chevron {
+    width: 22px;
+    height: 22px;
+    color: var(--blush);
+    transition: transform .3s;
+    flex-shrink: 0;
+  }
+  .cat-card.open .cat-chevron { transform: rotate(90deg); }
+
+  .cat-body {
+    display: none;
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--blush);
+    margin-top: 0;
+  }
+  .cat-card.open .cat-body { display: block; }
+  .cat-body-inner { padding-top: 18px; }
+
+  .item-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .item-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rose);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* gift card logos row */
+  .gc-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .gc-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--parchment);
+    border: 1px solid var(--blush);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .gc-logo:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+  }
+
+  /* bank info box */
+  .bank-box {
+    background: var(--parchment);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .bank-box strong { color: var(--deep); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,.45);
+    text-align: center;
+    padding: 44px 24px;
+  }
+  footer .fn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--blush);
+    display: block;
+    margin-bottom: 10px;
+  }
+  footer p { font-size: 12px; letter-spacing: 1.5px; }
+
+  /* ── CONTACT BTN ── */
+  .rsvp-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 13px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all .3s;
+  }
+  .rsvp-btn:hover {
+    opacity: .85;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(122,148,120,.3);
+  }
+
+  /* ── LANG HELPERS ── */
+  [data-lang] { display: none; }
+  [data-lang-inline] { display: none; }
+  .lang-es [data-lang="es"],
+  .lang-en [data-lang="en"],
+  .lang-de [data-lang="de"] { display: block; }
+  .lang-es [data-lang-inline="es"],
+  .lang-en [data-lang-inline="en"],
+  .lang-de [data-lang-inline="de"] { display: inline; }
+
+  /* ── ANIMATION ── */
+  @keyframes riseUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 500px) {
+    .amazon-card { padding: 24px 18px; }
+    .cat-header { padding: 16px 18px; }
+    .cat-body { padding: 0 18px 20px; }
+  }
+</style>
+</head>
+<body class="lang-es">
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('es',this)">ES</button>
+  <button class="lang-btn" onclick="setLang('en',this)">EN</button>
+  <button class="lang-btn" onclick="setLang('de',this)">DE</button>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="setTab('gifts',this)">
+    <span data-lang-inline="es">🎁 Regalos</span>
+    <span data-lang-inline="en">🎁 Gifts</span>
+    <span data-lang-inline="de">🎁 Geschenke</span>
+  </button>
+  <button class="tab-btn" onclick="setTab('history',this)">
+    <span data-lang-inline="es">💍 Historia</span>
+    <span data-lang-inline="en">💍 History</span>
+    <span data-lang-inline="de">💍 Geschichte</span>
+  </button>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!--  TAB 1 — GIFTS                  -->
+<!-- ════════════════════════════════ -->
+<div id="tab-gifts" class="tab-page active">
+<div class="hero">
+  <!-- Botanical arch SVG -->
+  <svg class="botanical-arch" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left stem -->
+    <path d="M60 200 C80 140 130 100 190 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
+    <path d="M100 165 C120 120 155 95 180 78" stroke="#7a9478" stroke-width="1" fill="none"/>
+    <!-- Left roses -->
+    <circle cx="190" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
+    <circle cx="190" cy="70" r="9" fill="#c4705a" opacity=".85"/>
+    <circle cx="175" cy="85" r="10" fill="#e8c4b2" opacity=".6"/>
+    <circle cx="175" cy="85" r="5" fill="#c4705a" opacity=".7"/>
+    <!-- Left leaves -->
+    <ellipse cx="165" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(-35 165 95)"/>
+    <ellipse cx="145" cy="110" rx="12" ry="4" fill="#bdd0ba" opacity=".5" transform="rotate(-20 145 110)"/>
+    <ellipse cx="200" cy="88" rx="11" ry="4" fill="#7a9478" opacity=".4" transform="rotate(15 200 88)"/>
+    <!-- Small buds left -->
+    <circle cx="130" cy="140" r="5" fill="#c8a05a" opacity=".6"/>
+    <circle cx="108" cy="158" r="4" fill="#bdd0ba" opacity=".5"/>
+    <!-- Scattered petals left -->
+    <ellipse cx="155" cy="120" rx="4" ry="2" fill="#e8c4b2" opacity=".4" transform="rotate(-25 155 120)"/>
+
+    <!-- Center arch -->
+    <path d="M240 55 Q350 15 460 55" stroke="#c8a05a" stroke-width="1" fill="none" stroke-dasharray="5 5" opacity=".7"/>
+    <!-- Center flower -->
+    <circle cx="350" cy="22" r="10" fill="#e8c4b2" opacity=".65"/>
+    <circle cx="350" cy="22" r="5" fill="#c8a05a" opacity=".75"/>
+    <ellipse cx="336" cy="30" rx="8" ry="3" fill="#bdd0ba" opacity=".45" transform="rotate(20 336 30)"/>
+    <ellipse cx="364" cy="30" rx="8" ry="3" fill="#bdd0ba" opacity=".45" transform="rotate(-20 364 30)"/>
+
+    <!-- Right stem (mirror) -->
+    <path d="M640 200 C620 140 570 100 510 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
+    <path d="M600 165 C580 120 545 95 520 78" stroke="#7a9478" stroke-width="1" fill="none"/>
+    <circle cx="510" cy="70" r="16" fill="#e8c4b2" opacity=".75"/>
+    <circle cx="510" cy="70" r="9" fill="#c4705a" opacity=".85"/>
+    <circle cx="525" cy="85" r="10" fill="#e8c4b2" opacity=".6"/>
+    <circle cx="525" cy="85" r="5" fill="#c4705a" opacity=".7"/>
+    <ellipse cx="535" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(35 535 95)"/>
+    <ellipse cx="555" cy="110" rx="12" ry="4" fill="#bdd0ba" opacity=".5" transform="rotate(20 555 110)"/>
+    <ellipse cx="500" cy="88" rx="11" ry="4" fill="#7a9478" opacity=".4" transform="rotate(-15 500 88)"/>
+    <circle cx="570" cy="140" r="5" fill="#c8a05a" opacity=".6"/>
+    <circle cx="592" cy="158" r="4" fill="#bdd0ba" opacity=".5"/>
+    <ellipse cx="545" cy="120" rx="4" ry="2" fill="#e8c4b2" opacity=".4" transform="rotate(25 545 120)"/>
+  </svg>
+
+  <p class="hero-eyebrow">
+    <span data-lang-inline="es">Andrea Valentina &amp; César · 29 de julio de 2026</span>
+    <span data-lang-inline="en">Andrea Valentina &amp; César · July 29, 2026</span>
+    <span data-lang-inline="de">Andrea Valentina &amp; César · 29. Juli 2026</span>
+  </p>
+
+  <h1 class="hero-title">
+    <span data-lang-inline="es"><em>Lista de</em><br/>Regalos</span>
+    <span data-lang-inline="en"><em>Gift</em><br/>Registry</span>
+    <span data-lang-inline="de"><em>Geschenke</em><br/>Wunschliste</span>
+  </h1>
+
+  <div class="petal-line">
+    <span class="petal-center">🌸</span>
+  </div>
+
+  <p class="hero-note" data-lang="es">Tu presencia es el mejor regalo. Si aun así deseas obsequiarnos algo, aquí encontrarás ideas para cada posibilidad y presupuesto.</p>
+  <p class="hero-note" data-lang="en">Your presence is already the greatest gift. But if you'd still like to give us something, here you'll find ideas for every possibility and budget.</p>
+  <p class="hero-note" data-lang="de">Deine Anwesenheit ist das schönste Geschenk. Falls du uns trotzdem etwas mitbringen möchtest, findest du hier Ideen für jede Möglichkeit und jedes Budget.</p>
+</div>
+
+<!-- ══════ MAIN ══════ -->
+<main>
+
+  <!-- ─── AMAZON LIST ─── -->
+  <div class="amazon-card">
+    <div class="amazon-badge">
+      <!-- Amazon smile icon -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5c-2.5 1.8-6.2 2.7-9.3.8-.2-.1-.1-.3.1-.2 3 1.7 6.7.9 9.1-.7.3-.2.6.2.1.1zm.9-1.1c-.3-.4-2-.2-2.8-.1-.2 0-.3-.2-.1-.3 1.4-1 3.6-.7 3.9-.4.3.3-.1 2.4-1.3 3.4-.2.2-.4.1-.3-.1.3-.7.9-2.1.6-2.5z"/></svg>
+      <span data-lang-inline="es">Lista oficial en Amazon.de</span>
+      <span data-lang-inline="en">Official Amazon.de wishlist</span>
+      <span data-lang-inline="de">Offizielle Amazon.de Wunschliste</span>
+    </div>
+
+    <h2 class="amazon-title">
+      <span data-lang-inline="es"><em>Nuestra lista</em> en Amazon</span>
+      <span data-lang-inline="en"><em>Our list</em> on Amazon</span>
+      <span data-lang-inline="de"><em>Unsere Liste</em> auf Amazon</span>
+    </h2>
+
+    <p class="amazon-desc" data-lang="es">Hemos seleccionado objetos especiales para nuestro nuevo hogar. Puedes ver la lista completa, filtrar por precio y marcar lo que regalarás para que no haya duplicados.</p>
+    <p class="amazon-desc" data-lang="en">We've chosen special items for our new home. You can browse the full list, filter by price, and mark what you'll gift to avoid duplicates.</p>
+    <p class="amazon-desc" data-lang="de">Wir haben besondere Artikel für unser neues Zuhause ausgewählt. Du kannst die vollständige Liste durchsehen, nach Preis filtern und markieren, was du schenken möchtest – um Dopplungen zu vermeiden.</p>
+
+    <a class="amazon-btn" href="https://www.amazon.de/wedding/invite-partner?registryID=1Q5X8XRFK1B1L&roleID=eb8b3bdb-addd-4978-bada-bf058df4953d&code=1070520063" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v4a1 1 0 001 1h4m-5-5H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5zm-3 9H8m4 0h-1m1 0v4m-4 0h4"/></svg>
+      <span data-lang-inline="es">Ver lista en Amazon →</span>
+      <span data-lang-inline="en">View Amazon list →</span>
+      <span data-lang-inline="de">Amazon-Liste ansehen →</span>
+    </a>
+
+    <div class="amazon-items-preview">
+      <span class="preview-tag" data-lang-inline="es">🏠 Hogar</span>
+      <span class="preview-tag" data-lang-inline="en">🏠 Home</span>
+      <span class="preview-tag" data-lang-inline="de">🏠 Zuhause</span>
+      <span class="preview-tag" data-lang-inline="es">🍳 Cocina</span>
+      <span class="preview-tag" data-lang-inline="en">🍳 Kitchen</span>
+      <span class="preview-tag" data-lang-inline="de">🍳 Küche</span>
+      <span class="preview-tag" data-lang-inline="es">🛏 Dormitorio</span>
+      <span class="preview-tag" data-lang-inline="en">🛏 Bedroom</span>
+      <span class="preview-tag" data-lang-inline="de">🛏 Schlafzimmer</span>
+      <span class="preview-tag" data-lang-inline="es">🕯 Deco</span>
+      <span class="preview-tag" data-lang-inline="en">🕯 Decor</span>
+      <span class="preview-tag" data-lang-inline="de">🕯 Deko</span>
+    </div>
+  </div>
+
+  <p class="sec-label">
+    <span data-lang-inline="es">Más formas de celebrarnos</span>
+    <span data-lang-inline="en">More ways to celebrate with us</span>
+    <span data-lang-inline="de">Weitere Möglichkeiten, mit uns zu feiern</span>
+  </p>
+  <h2 class="sec-title">
+    <span data-lang-inline="es">Otras <em>ideas</em></span>
+    <span data-lang-inline="en">Other <em>ideas</em></span>
+    <span data-lang-inline="de">Weitere <em>Ideen</em></span>
+  </h2>
+
+  <div class="cats-grid">
+
+    <!-- GIFT CARDS -->
+    <div class="cat-card" onclick="toggle(this)">
+      <div class="cat-header">
+        <div class="cat-icon">🎁</div>
+        <div class="cat-text">
+          <div class="cat-name">Gift Cards</div>
+          <div class="cat-tagline">
+            <span data-lang-inline="es">Fáciles de enviar desde cualquier país</span>
+            <span data-lang-inline="en">Easy to send from anywhere</span>
+            <span data-lang-inline="de">Einfach aus jedem Land versendbar</span>
+          </div>
+        </div>
+        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="cat-body">
+        <div class="cat-body-inner">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="es">Puedes comprarlas online y enviarnos el código por WhatsApp o correo.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="en">Buy them online and send us the code via WhatsApp or email.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="de">Online kaufen und uns den Code per WhatsApp oder E-Mail schicken.</p>
+          <div class="gc-logos">
+            <a class="gc-logo" href="https://www.amazon.de/-/en/b?ie=UTF8&node=1571256031" target="_blank" rel="noopener">🛒 Amazon.de</a>
+            <a class="gc-logo" href="https://www.ikea.com/de/de/gift-card/" target="_blank" rel="noopener">🏠 IKEA</a>
+            <a class="gc-logo" href="https://www.spotify.com/de/gift-card/" target="_blank" rel="noopener">🎵 Spotify</a>
+            <a class="gc-logo" href="https://www.netflix.com/de/gift-cards" target="_blank" rel="noopener">🎬 Netflix</a>
+            <a class="gc-logo" href="https://www.zalando.de/gutschein/" target="_blank" rel="noopener">👗 Zalando</a>
+            <a class="gc-logo" href="https://www.douglas.de/de/c/gutscheine/00100000" target="_blank" rel="noopener">🌸 Douglas</a>
+            <a class="gc-logo" href="https://www.rewe.de/service/gutscheine/" target="_blank" rel="noopener">🛍 REWE</a>
+            <a class="gc-logo" href="https://www.saturn.de/de/geschenkkarten.html" target="_blank" rel="noopener">📱 Saturn</a>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="es">💡 <em>Nota:</em> Booking.com no vende gift cards directamente — para viajes, recomendamos hacer una transferencia y lo gestionamos nosotros, o comprar por Jochen Schweizer (ver sección de experiencias).</p>
+          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="en">💡 <em>Note:</em> Booking.com doesn't sell gift cards directly — for travel, we suggest a transfer and we'll handle it, or check Jochen Schweizer (see experiences section).</p>
+          <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;" data-lang="de">💡 <em>Hinweis:</em> Booking.com verkauft keine Geschenkkarten direkt — für Reisen empfehlen wir eine Überweisung oder Jochen Schweizer (siehe Erlebnisse).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DINERO -->
+    <div class="cat-card" onclick="toggle(this)">
+      <div class="cat-header">
+        <div class="cat-icon">💛</div>
+        <div class="cat-text">
+          <div class="cat-name">
+            <span data-lang-inline="es">Aporte en efectivo</span>
+            <span data-lang-inline="en">Cash contribution</span>
+            <span data-lang-inline="de">Geldgeschenk</span>
+          </div>
+          <div class="cat-tagline">
+            <span data-lang-inline="es">Simple, flexible y muy apreciado</span>
+            <span data-lang-inline="en">Simple, flexible and greatly appreciated</span>
+            <span data-lang-inline="de">Einfach, flexibel und sehr willkommen</span>
+          </div>
+        </div>
+        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="cat-body">
+        <div class="cat-body-inner">
+          <ul class="item-list">
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">PayPal · Revolut · Wise — escríbenos y te pasamos los datos 💌</span>
+              <span data-lang-inline="en">PayPal · Revolut · Wise — message us for details 💌</span>
+              <span data-lang-inline="de">PayPal · Revolut · Wise — schreib uns für die Details 💌</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">Transferencia bancaria (IBAN disponible por solicitud)</span>
+              <span data-lang-inline="en">Bank transfer (IBAN available on request)</span>
+              <span data-lang-inline="de">Banküberweisung (IBAN auf Anfrage erhältlich)</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">Sobre en efectivo el día del evento — entregar a familiares directos</span>
+              <span data-lang-inline="en">Cash envelope on the day — hand to close family members</span>
+              <span data-lang-inline="de">Briefumschlag am Hochzeitstag — an enge Familienmitglieder übergeben</span>
+            </li>
+          </ul>
+          <div class="bank-box" data-lang="es">💌 Para datos bancarios o PayPal, escríbenos directamente. Con gusto te los compartimos.</div>
+          <div class="bank-box" data-lang="en">💌 For bank or PayPal details, message us directly. We'll be happy to share them.</div>
+          <div class="bank-box" data-lang="de">💌 Für Bankdaten oder PayPal-Infos schreib uns direkt. Wir teilen sie gerne mit dir.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIAS -->
+    <div class="cat-card" onclick="toggle(this)">
+      <div class="cat-header">
+        <div class="cat-icon">🌿</div>
+        <div class="cat-text">
+          <div class="cat-name">
+            <span data-lang-inline="es">Servicios &amp; experiencias</span>
+            <span data-lang-inline="en">Services &amp; experiences</span>
+            <span data-lang-inline="de">Erlebnisse &amp; Dienstleistungen</span>
+          </div>
+          <div class="cat-tagline">
+            <span data-lang-inline="es">Momentos que atesoraremos</span>
+            <span data-lang-inline="en">Moments we'll always treasure</span>
+            <span data-lang-inline="de">Momente, die wir in Erinnerung behalten</span>
+          </div>
+        </div>
+        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="cat-body">
+        <div class="cat-body-inner">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Compra el voucher online y envíanos el código — o escríbenos para coordinar juntos.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">Buy the voucher online and send us the code — or message us to coordinate together.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Kauf den Gutschein online und schick uns den Code — oder schreib uns, um gemeinsam zu koordinieren.</p>
+          <ul class="item-list">
+            <li><span class="item-dot"></span>
+              <div>
+                <span data-lang-inline="es">🏨 Noche de hotel romántico en Köln</span>
+                <span data-lang-inline="en">🏨 Romantic hotel night in Köln</span>
+                <span data-lang-inline="de">🏨 Romantische Hotelnacht in Köln</span>
+                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+                  <a href="https://www.savoy.de/en/vouchers" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">SAVOY Hotel Köln →</a>
+                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer →</a>
+                </div>
+              </div>
+            </li>
+            <li><span class="item-dot"></span>
+              <div>
+                <span data-lang-inline="es">🍽 Cena especial para dos</span>
+                <span data-lang-inline="en">🍽 Special dinner for two</span>
+                <span data-lang-inline="de">🍽 Besonderes Abendessen für zwei</span>
+                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer (Candle Light Dinner) →</a>
+                </div>
+              </div>
+            </li>
+            <li><span class="item-dot"></span>
+              <div>
+                <span data-lang-inline="es">💆 Sesión de spa o masajes para dos</span>
+                <span data-lang-inline="en">💆 Spa or couples massage session</span>
+                <span data-lang-inline="de">💆 Spa- oder Paarmassage für zwei</span>
+                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+                  <a href="https://www.savoy.de/en/vouchers" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">SAVOY Spa Köln →</a>
+                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer (Wellness) →</a>
+                </div>
+              </div>
+            </li>
+            <li><span class="item-dot"></span>
+              <div>
+                <span data-lang-inline="es">✈️ Vuelo o tren para la luna de miel</span>
+                <span data-lang-inline="en">✈️ Flight or train for the honeymoon</span>
+                <span data-lang-inline="de">✈️ Flug oder Zug für die Flitterwochen</span>
+                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+                  <a href="https://www.lufthansa.com/de/de/gift-card" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Lufthansa Gift Card →</a>
+                  <a href="https://www.bahn.de/service/buchung-reservierung/gutscheine" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Deutsche Bahn →</a>
+                </div>
+              </div>
+            </li>
+            <li><span class="item-dot"></span>
+              <div>
+                <span data-lang-inline="es">🎟 Experiencia o aventura a elegir</span>
+                <span data-lang-inline="en">🎟 Experience or adventure of their choice</span>
+                <span data-lang-inline="de">🎟 Erlebnis oder Abenteuer nach Wahl</span>
+                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+                  <a href="https://www.jochen-schweizer.de/geschenkgutscheine/Wertgutscheine/l/gwtim" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer Wertgutschein →</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CON TIEMPO Y AMOR -->
+    <div class="cat-card" onclick="toggle(this)">
+      <div class="cat-header">
+        <div class="cat-icon">🤝</div>
+        <div class="cat-text">
+          <div class="cat-name">
+            <span data-lang-inline="es">Con tiempo &amp; amor</span>
+            <span data-lang-inline="en">With time &amp; love</span>
+            <span data-lang-inline="de">Mit Zeit &amp; Liebe</span>
+          </div>
+          <div class="cat-tagline">
+            <span data-lang-inline="es">Para quienes quieren colaborar de otra manera</span>
+            <span data-lang-inline="en">For those who want to contribute differently</span>
+            <span data-lang-inline="de">Für alle, die anders beitragen möchten</span>
+          </div>
+        </div>
+        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="cat-body">
+        <div class="cat-body-inner">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Si tienes una habilidad que puedas ofrecer para la boda o la mudanza, ¡nos encantaría saberlo! Escríbenos y lo coordinamos.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">If you have a skill you can offer for the wedding or our move, we'd love to hear it! Message us and we'll coordinate.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Wenn du eine Fähigkeit anbietest, die für die Hochzeit oder den Umzug hilfreich ist, freuen wir uns! Schreib uns und wir koordinieren alles.</p>
+          <ul class="item-list">
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">📸 Fotografía o video el día de la boda (si tienes experiencia)</span>
+              <span data-lang-inline="en">📸 Photography or video on the wedding day (if you have experience)</span>
+              <span data-lang-inline="de">📸 Fotos oder Video am Hochzeitstag (bei Erfahrung)</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">🎨 Decoración floral o ambiental para la recepción</span>
+              <span data-lang-inline="en">🎨 Floral or ambient decoration for the reception</span>
+              <span data-lang-inline="de">🎨 Blumen- oder Raumdekoration für den Empfang</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">🎤 Música en vivo, canto o animación durante la celebración</span>
+              <span data-lang-inline="en">🎤 Live music, singing or entertainment during the celebration</span>
+              <span data-lang-inline="de">🎤 Livemusik, Gesang oder Unterhaltung bei der Feier</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">🚗 Transporte el día del matrimonio (llevarnos a nosotros o a invitados)</span>
+              <span data-lang-inline="en">🚗 Transportation on the wedding day (for us or guests)</span>
+              <span data-lang-inline="de">🚗 Transport am Hochzeitstag (für uns oder Gäste)</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">📦 Ayuda con la mudanza — embalar cajas, cargar muebles, organizar</span>
+              <span data-lang-inline="en">📦 Help with moving — packing boxes, carrying furniture, organising</span>
+              <span data-lang-inline="de">📦 Hilfe beim Umzug — Kartons packen, Möbel tragen, organisieren</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">🛠 Montar muebles o ayudar a acondicionar el nuevo hogar</span>
+              <span data-lang-inline="en">🛠 Assembling furniture or helping set up our new home</span>
+              <span data-lang-inline="de">🛠 Möbel aufbauen oder das neue Zuhause einrichten</span>
+            </li>
+            <li><span class="item-dot"></span>
+              <span data-lang-inline="es">💻 Diseño gráfico, web, traducción u otras habilidades profesionales</span>
+              <span data-lang-inline="en">💻 Graphic design, web, translation or other professional skills</span>
+              <span data-lang-inline="de">💻 Grafikdesign, Web, Übersetzung oder andere Fachkenntnisse</span>
+            </li>
+          </ul>
+          <!-- CTA contact -->
+          <div class="bank-box" style="margin-top:20px;text-align:center;">
+            <p style="font-size:13px;color:var(--deep);margin-bottom:14px;" data-lang="es">¿Tienes algo que ofrecer? Cuéntanos, nos hace muy felices 🌸</p>
+            <p style="font-size:13px;color:var(--deep);margin-bottom:14px;" data-lang="en">Have something to offer? Tell us — it makes us so happy 🌸</p>
+            <p style="font-size:13px;color:var(--deep);margin-bottom:14px;" data-lang="de">Möchtest du etwas anbieten? Schreib uns — das macht uns sehr glücklich 🌸</p>
+            <!-- Replace with your actual WhatsApp link: https://wa.me/49XXXXXXXXX -->
+            <a href="mailto:tu@email.com?subject=Quiero%20colaborar%20con%20la%20boda" class="rsvp-btn" style="display:inline-block;background:var(--sage);font-size:10px;padding:12px 28px;">
+              <span data-lang-inline="es">Escríbenos →</span>
+              <span data-lang-inline="en">Message us →</span>
+              <span data-lang-inline="de">Schreib uns →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cats-grid -->
+
+</main>
+
+</div><!-- /tab-gifts -->
+
+<!-- ════════════════════════════════ -->
+<!--  TAB 2 — HISTORY                -->
+<!-- ════════════════════════════════ -->
+<div id="tab-history" class="tab-page">
+
+  <!-- HERO -->
+  <div class="hist-hero">
+    <svg class="botanical-arch" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 200 C80 140 130 100 190 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
+      <circle cx="190" cy="70" r="16" fill="#e8c4b2" opacity=".75"/><circle cx="190" cy="70" r="9" fill="#c4705a" opacity=".85"/>
+      <ellipse cx="165" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(-35 165 95)"/>
+      <path d="M240 55 Q350 15 460 55" stroke="#c8a05a" stroke-width="1" fill="none" stroke-dasharray="5 5" opacity=".7"/>
+      <circle cx="350" cy="22" r="10" fill="#e8c4b2" opacity=".65"/><circle cx="350" cy="22" r="5" fill="#c8a05a" opacity=".75"/>
+      <path d="M640 200 C620 140 570 100 510 70" stroke="#c4705a" stroke-width="1.4" fill="none"/>
+      <circle cx="510" cy="70" r="16" fill="#e8c4b2" opacity=".75"/><circle cx="510" cy="70" r="9" fill="#c4705a" opacity=".85"/>
+      <ellipse cx="535" cy="95" rx="14" ry="5" fill="#7a9478" opacity=".55" transform="rotate(35 535 95)"/>
+    </svg>
+
+    <p class="hero-eyebrow">
+      <span data-lang-inline="es">Una historia universal de amor y compromiso</span>
+      <span data-lang-inline="en">A universal story of love and commitment</span>
+      <span data-lang-inline="de">Eine universelle Geschichte von Liebe und Verbindung</span>
+    </p>
+    <h1 class="hero-title">
+      <span data-lang-inline="es"><em>Historia</em> del<br/>Matrimonio</span>
+      <span data-lang-inline="en"><em>History</em> of<br/>Marriage</span>
+      <span data-lang-inline="de"><em>Geschichte</em> der<br/>Ehe</span>
+    </h1>
+    <div class="petal-line"><span class="petal-center">💍</span></div>
+    <p class="hero-note" data-lang="es">Desde las primeras sociedades humanas hasta hoy, el matrimonio ha sido el ritual más universal de la humanidad. Cada época y cultura le ha dado su propio significado.</p>
+    <p class="hero-note" data-lang="en">From the earliest human societies to the present day, marriage has been humanity's most universal ritual — each era and culture giving it their own unique meaning.</p>
+    <p class="hero-note" data-lang="de">Von den frühesten menschlichen Gesellschaften bis heute ist die Ehe das universellste Ritual der Menschheit — jede Epoche und Kultur hat ihr eine eigene Bedeutung gegeben.</p>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <div class="timeline">
+
+    <p class="sec-label" style="text-align:center;margin-bottom:32px;">
+      <span data-lang-inline="es">Cronología · Por qué surgió el matrimonio</span>
+      <span data-lang-inline="en">Timeline · Why marriage emerged</span>
+      <span data-lang-inline="de">Zeitstrahl · Warum die Ehe entstand</span>
+    </p>
+
+    <!-- 1 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>~4350<br/>a.C.</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot" style="margin-top:6px;"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;">
+            <div class="timeline-era"><span data-lang-inline="es">Mesopotamia · Los orígenes</span><span data-lang-inline="en">Mesopotamia · The origins</span><span data-lang-inline="de">Mesopotamien · Die Anfänge</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">El primer <em>contrato</em> de unión</span><span data-lang-inline="en">The first <em>union contract</em></span><span data-lang-inline="de">Der erste <em>Ehevertrag</em></span></div>
+            <div class="timeline-body" data-lang="es">Las evidencias más antiguas de ceremonias matrimoniales datan de alrededor del 2350 a.C. en Mesopotamia. No surgió del amor romántico, sino de la necesidad práctica: las comunidades agrícolas necesitaban unidades familiares estables para administrar tierras, transmitir propiedades y garantizar la paternidad de los hijos. El matrimonio era esencialmente un acuerdo económico entre familias.</div>
+            <div class="timeline-body" data-lang="en">The oldest evidence of wedding ceremonies dates to around 2350 BC in Mesopotamia. It didn't arise from romantic love, but from practical necessity: farming communities needed stable family units to manage land, pass on property, and confirm paternity. Marriage was essentially an economic agreement between families.</div>
+            <div class="timeline-body" data-lang="de">Die ältesten Belege für Hochzeitszeremonien stammen aus etwa 2350 v. Chr. in Mesopotamien. Sie entstanden nicht aus romantischer Liebe, sondern aus praktischer Notwendigkeit: Landwirtschaftliche Gemeinschaften brauchten stabile Familieneinheiten zur Verwaltung von Land, Weitergabe von Eigentum und Sicherung der Vaterschaft. Die Ehe war im Wesentlichen ein wirtschaftliches Abkommen zwischen Familien.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>Antigüedad<br/>clásica</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;">
+            <div class="timeline-era"><span data-lang-inline="es">Grecia y Roma · Alianza y descendencia</span><span data-lang-inline="en">Greece & Rome · Alliance and lineage</span><span data-lang-inline="de">Griechenland & Rom · Bündnis und Abstammung</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">El matrimonio como <em>alianza política</em></span><span data-lang-inline="en">Marriage as a <em>political alliance</em></span><span data-lang-inline="de">Ehe als <em>politisches Bündnis</em></span></div>
+            <div class="timeline-body" data-lang="es">En Grecia y Roma el matrimonio era ante todo una institución civil. En Roma, el anillo de boda se colocaba en el dedo anular izquierdo porque se creía que una vena, la <em>vena amoris</em>, conectaba ese dedo directamente con el corazón. Las mujeres tenían pocos derechos y el matrimonio servía para asegurar herederos legítimos y sellar alianzas entre familias poderosas.</div>
+            <div class="timeline-body" data-lang="en">In Greece and Rome, marriage was above all a civic institution. In Rome, the wedding ring was placed on the left ring finger because it was believed a vein — the <em>vena amoris</em> — connected it directly to the heart. Women had few rights, and marriage served to secure legitimate heirs and seal alliances between powerful families.</div>
+            <div class="timeline-body" data-lang="de">In Griechenland und Rom war die Ehe in erster Linie eine bürgerliche Institution. In Rom wurde der Ehering am linken Ringfinger getragen, weil man glaubte, eine Vene — die <em>vena amoris</em> — verbinde ihn direkt mit dem Herzen. Frauen hatten wenige Rechte, und die Ehe diente der Sicherung legitimer Erben und dem Schließen von Bündnissen zwischen mächtigen Familien.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>Edad<br/>Media</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;">
+            <div class="timeline-era"><span data-lang-inline="es">Europa · La Iglesia toma el control</span><span data-lang-inline="en">Europe · The Church takes control</span><span data-lang-inline="de">Europa · Die Kirche übernimmt die Kontrolle</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">El matrimonio como <em>sacramento</em></span><span data-lang-inline="en">Marriage as a <em>sacrament</em></span><span data-lang-inline="de">Ehe als <em>Sakrament</em></span></div>
+            <div class="timeline-body" data-lang="es">En el siglo XII la Iglesia Católica declaró el matrimonio uno de los siete sacramentos, tomando control de la institución. Las ceremonias pasaron a celebrarse en la iglesia, ante un sacerdote y testigos. El Concilio de Trento (1563) formalizó aún más las reglas, exigiendo el consentimiento de ambas partes — un avance para la época.</div>
+            <div class="timeline-body" data-lang="en">In the 12th century the Catholic Church declared marriage one of the seven sacraments, taking control of the institution. Ceremonies moved to the church, before a priest and witnesses. The Council of Trent (1563) further formalized the rules, requiring the consent of both parties — a significant step forward for the era.</div>
+            <div class="timeline-body" data-lang="de">Im 12. Jahrhundert erklärte die katholische Kirche die Ehe zu einem der sieben Sakramente und übernahm damit die Kontrolle über die Institution. Zeremonien fanden nun in der Kirche vor einem Priester und Zeugen statt. Das Konzil von Trient (1563) formalisierte die Regeln weiter und forderte die Zustimmung beider Parteien — ein bedeutender Fortschritt für die damalige Zeit.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>Siglo<br/>XVIII</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;">
+            <div class="timeline-era"><span data-lang-inline="es">Ilustración · Nace el amor romántico</span><span data-lang-inline="en">Enlightenment · Romantic love is born</span><span data-lang-inline="de">Aufklärung · Die romantische Liebe entsteht</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">Casarse <em>por amor</em></span><span data-lang-inline="en">Marrying <em>for love</em></span><span data-lang-inline="de">Heiraten <em>aus Liebe</em></span></div>
+            <div class="timeline-body" data-lang="es">Solo hace unos 250 años surgió la idea revolucionaria de casarse por amor. Hasta entonces, los matrimonios eran arreglados por las familias con fines económicos o políticos. La Ilustración y el Romanticismo cambiaron radicalmente la expectativa: el amor debía ser la base de la unión. Esta idea, que hoy consideramos natural, es en realidad muy reciente.</div>
+            <div class="timeline-body" data-lang="en">Only about 250 years ago did the revolutionary idea of marrying for love emerge. Until then, marriages were arranged by families for economic or political purposes. The Enlightenment and Romanticism radically changed expectations: love should be the foundation of union. This idea, which we now consider natural, is actually very recent.</div>
+            <div class="timeline-body" data-lang="de">Erst vor etwa 250 Jahren entstand die revolutionäre Idee, aus Liebe zu heiraten. Bis dahin wurden Ehen von Familien aus wirtschaftlichen oder politischen Gründen arrangiert. Aufklärung und Romantik veränderten die Erwartungen grundlegend: Liebe sollte die Grundlage der Verbindung sein. Diese Idee, die wir heute als selbstverständlich betrachten, ist tatsächlich sehr jung.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>1840</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;">
+            <div class="timeline-era"><span data-lang-inline="es">Era Victoriana · El vestido blanco</span><span data-lang-inline="en">Victorian Era · The white dress</span><span data-lang-inline="de">Viktorianische Ära · Das weiße Kleid</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">La Reina Victoria y el <em>vestido blanco</em></span><span data-lang-inline="en">Queen Victoria and the <em>white gown</em></span><span data-lang-inline="de">Königin Victoria und das <em>weiße Kleid</em></span></div>
+            <div class="timeline-body" data-lang="es">Cuando la Reina Victoria de Inglaterra se casó con el Príncipe Alberto en 1840 usando un vestido blanco de encaje, desencadenó una moda global que persiste hasta hoy. Antes las novias simplemente usaban su mejor vestido en cualquier color. El blanco se asoció con pureza e inocencia, y fue adoptado masivamente por las clases media y alta de Europa y América.</div>
+            <div class="timeline-body" data-lang="en">When Queen Victoria of England married Prince Albert in 1840 wearing a white lace gown, she sparked a global fashion that persists to this day. Before that, brides simply wore their best dress in any color. White became associated with purity and innocence, and was widely adopted by the middle and upper classes of Europe and America.</div>
+            <div class="timeline-body" data-lang="de">Als Königin Victoria 1840 Prinz Albert in einem weißen Spitzenkleid heiratete, löste sie eine globale Mode aus, die bis heute anhält. Zuvor trugen Bräute einfach ihr bestes Kleid in jeder beliebigen Farbe. Weiß wurde mit Reinheit und Unschuld verbunden und von der Mittel- und Oberschicht Europas und Amerikas weitgehend übernommen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="timeline-item">
+      <div class="timeline-year"><span>Siglo<br/>XX–XXI</span></div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="position:relative;">
+            <div class="timeline-dot" style="background:var(--gold);"></div>
+          </div>
+          <div class="timeline-card" style="flex:1;border-color:var(--gold);">
+            <div class="timeline-era"><span data-lang-inline="es">Hoy · Un mundo de posibilidades</span><span data-lang-inline="en">Today · A world of possibilities</span><span data-lang-inline="de">Heute · Eine Welt der Möglichkeiten</span></div>
+            <div class="timeline-title"><span data-lang-inline="es">El matrimonio como <em>elección libre</em></span><span data-lang-inline="en">Marriage as a <em>free choice</em></span><span data-lang-inline="de">Ehe als <em>freie Entscheidung</em></span></div>
+            <div class="timeline-body" data-lang="es">El siglo XX trajo igualdad legal entre cónyuges, el divorcio como derecho, y en muchos países la posibilidad de que cualquier pareja — sin importar género u orientación — pueda casarse. El matrimonio moderno es, por primera vez en la historia, una elección genuinamente libre fundada en el amor mutuo. Andrea Valentina y César son parte de esta hermosa tradición en evolución 💖</div>
+            <div class="timeline-body" data-lang="en">The 20th century brought legal equality between spouses, divorce as a right, and in many countries the ability for any couple — regardless of gender or orientation — to marry. Modern marriage is, for the first time in history, a genuinely free choice founded on mutual love. Andrea Valentina and César are part of this beautiful, evolving tradition 💖</div>
+            <div class="timeline-body" data-lang="de">Das 20. Jahrhundert brachte rechtliche Gleichstellung zwischen Ehepartnern, das Recht auf Scheidung und in vielen Ländern die Möglichkeit, dass jedes Paar — unabhängig von Geschlecht oder Orientierung — heiraten kann. Die moderne Ehe ist erstmals in der Geschichte eine wirklich freie Entscheidung, die auf gegenseitiger Liebe beruht. Andrea Valentina und César sind Teil dieser wunderschönen, sich entwickelnden Tradition 💖</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <hr class="sep" style="max-width:760px;margin:0 auto 60px;" />
+
+  <!-- ── ATTIRE SECTION ── -->
+  <div class="attire-section">
+    <p class="sec-label">
+      <span data-lang-inline="es">Moda nupcial · Alrededor del mundo y a través del tiempo</span>
+      <span data-lang-inline="en">Bridal fashion · Around the world and through time</span>
+      <span data-lang-inline="de">Brautmode · Rund um die Welt und durch die Zeit</span>
+    </p>
+    <h2 class="sec-title">
+      <span data-lang-inline="es">El vestuario de los <em>novios</em></span>
+      <span data-lang-inline="en">The <em>wedding</em> attire</span>
+      <span data-lang-inline="de">Die <em>Hochzeits</em>kleidung</span>
+    </h2>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px;" data-lang="es">Cada cultura viste a sus novios con significados profundos: color, tejido, símbolo. Un recorrido por el vestuario nupcial más emblemático del mundo.</p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px;" data-lang="en">Every culture dresses its couples with deep meaning: color, fabric, symbol. A journey through the world's most iconic bridal attire.</p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:8px;" data-lang="de">Jede Kultur kleidet ihre Brautpaare mit tiefer Bedeutung: Farbe, Stoff, Symbol. Eine Reise durch die ikonischsten Hochzeitskleidungen der Welt.</p>
+
+    <div class="attire-grid">
+
+      <!-- OCCIDENTE -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #002868, #BF0A30, #fff);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🤍</span>
+            <span class="attire-name"><span data-lang-inline="es">Occidente</span><span data-lang-inline="en">Western</span><span data-lang-inline="de">Westlich</span></span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">Vestido blanco · Traje oscuro</span><span data-lang-inline="en">White gown · Dark suit</span><span data-lang-inline="de">Weißes Kleid · Dunkler Anzug</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">Vestido blanco o marfil popularizado por la Reina Victoria (1840). Puede ser corte princesa, sirena, imperio o minimalista. Se acompaña de velo, ramo y algo azul, prestado y nuevo — según la tradición anglosajona.</div>
+              <div class="attire-desc" data-lang="en">White or ivory gown popularized by Queen Victoria (1840). Styles include princess, mermaid, empire, or minimalist cuts. Accompanied by a veil, bouquet, and "something old, new, borrowed, blue" per Anglo-Saxon tradition.</div>
+              <div class="attire-desc" data-lang="de">Weißes oder elfenbeinfarbenes Kleid, popularisiert von Königin Victoria (1840). Stile umfassen Prinzessinnen-, Meerjungfrauen-, Empire- oder minimalistische Schnitte. Begleitet von Schleier, Blumenstrauß und dem Brauch "etwas Altes, Neues, Geliehenes, Blaues".</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Esmoquin negro con pajarita blanca (formal) o traje oscuro con corbata. Hoy también lino beis, azul marino o incluso color para bodas al aire libre.</div>
+              <div class="attire-desc" data-lang="en">Black tuxedo with white bow tie (formal) or dark suit with tie. Today also beige linen, navy, or even colored suits for outdoor weddings.</div>
+              <div class="attire-desc" data-lang="de">Schwarzer Smoking mit weißer Fliege (formal) oder dunkler Anzug mit Krawatte. Heute auch Beige-Leinen, Marineblau oder farbige Anzüge für Outdoor-Hochzeiten.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDIA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #FF9933, #fff, #138808);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇮🇳</span>
+            <span class="attire-name">India</span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">Lehenga / Sari · Sherwani</span><span data-lang-inline="en">Lehenga / Sari · Sherwani</span><span data-lang-inline="de">Lehenga / Sari · Sherwani</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">Lehenga o sari en rojo, granate o dorado — colores de prosperidad y fertilidad en la tradición hindú. Con bordados zari en hilo de oro, joyas elaboradas en todas las extremidades y manos adornadas con henna (mehndi). El sari se remonta 5.000 años.</div>
+              <div class="attire-desc" data-lang="en">Lehenga or sari in red, maroon or gold — colors of prosperity and fertility in Hindu tradition. With zari gold thread embroidery, elaborate jewelry on every limb, and hands adorned with henna (mehndi). The sari dates back 5,000 years.</div>
+              <div class="attire-desc" data-lang="de">Lehenga oder Sari in Rot, Weinrot oder Gold — Farben für Wohlstand und Fruchtbarkeit in der hinduistischen Tradition. Mit Zari-Goldstickerei, aufwendigem Schmuck an allen Gliedmaßen und mit Henna (Mehndi) verzierten Händen. Der Sari ist 5.000 Jahre alt.</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Sherwani: largo abrigo bordado en seda o terciopelo, con churidars (pantalones) y turbante o safa. A menudo en colores que combinan con la novia, con espada ceremonial como símbolo de honor.</div>
+              <div class="attire-desc" data-lang="en">Sherwani: a long embroidered coat in silk or velvet, worn with churidars (trousers) and a turban or safa. Often in colors matching the bride, with a ceremonial sword as a symbol of honor.</div>
+              <div class="attire-desc" data-lang="de">Sherwani: ein langer bestickter Mantel aus Seide oder Samt, getragen mit Churidars (Hosen) und Turban oder Safa. Oft in Farben passend zur Braut, mit einem zeremoniellen Schwert als Ehrensymbol.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JAPÓN -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #fff 40%, #BC002D 40%);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇯🇵</span>
+            <span class="attire-name"><span data-lang-inline="es">Japón</span><span data-lang-inline="en">Japan</span><span data-lang-inline="de">Japan</span></span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">Shiromuku · Montsuki Hakama</span><span data-lang-inline="en">Shiromuku · Montsuki Hakama</span><span data-lang-inline="de">Shiromuku · Montsuki Hakama</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">La novia viste un shiromuku, kimono blanco que simboliza pureza y disposición a "teñirse" con los colores de la nueva familia. Lo corona un tsuno kakushi, tocado que cubre sus cuernos de celos. En la recepción cambia a un iro-uchikake en rojo brillante (buena suerte). Tradición que data del período Heian (794–1185).</div>
+              <div class="attire-desc" data-lang="en">The bride wears a shiromuku, a white kimono symbolizing purity and willingness to be "dyed" by her new family's colors. Crowned with a tsuno kakushi headdress concealing her horns of jealousy. At the reception she changes to a vibrant red iro-uchikake (good luck). A tradition dating to the Heian period (794–1185).</div>
+              <div class="attire-desc" data-lang="de">Die Braut trägt einen Shiromuku, einen weißen Kimono, der Reinheit und die Bereitschaft symbolisiert, in den Farben ihrer neuen Familie „gefärbt" zu werden. Gekrönt von einem Tsuno Kakushi, einem Kopfschmuck, der ihre Eifersuchtshörner verbirgt. Beim Empfang wechselt sie zu einem leuchtend roten Iro-Uchikake (Glück). Eine Tradition aus der Heian-Zeit (794–1185).</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Montsuki hakama: kimono negro con los cinco blasones de la familia (kamon) en blanco, pantalón hakama plisado y haori (chaqueta). Elegancia austera que denota rango y respeto.</div>
+              <div class="attire-desc" data-lang="en">Montsuki hakama: a black kimono bearing five family crests (kamon) in white, pleated hakama trousers, and a haori jacket. Austere elegance denoting rank and respect.</div>
+              <div class="attire-desc" data-lang="de">Montsuki Hakama: ein schwarzer Kimono mit fünf Familienwappen (Kamon) in Weiß, plissierte Hakama-Hose und ein Haori-Mantel. Strenge Eleganz, die Rang und Respekt ausdrückt.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHINA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #DE2910 70%, #FFDE00 70%);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇨🇳</span>
+            <span class="attire-name"><span data-lang-inline="es">China</span><span data-lang-inline="en">China</span><span data-lang-inline="de">China</span></span>
+          </div>
+          <div class="attire-garment">Qipao / Cheongsam · Changshan</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">El qipao o cheongsam es un vestido ajustado de seda roja con bordados de dragones y fénix — símbolos del novio y la novia. El rojo es el color de la suerte y el amor. Muchas novias modernas combinan un qipao tradicional con un vestido blanco occidental a lo largo del día.</div>
+              <div class="attire-desc" data-lang="en">The qipao or cheongsam is a fitted red silk dress embroidered with dragons and phoenixes — symbols of groom and bride. Red represents luck and love. Many modern brides combine a traditional qipao with a Western white dress throughout the day.</div>
+              <div class="attire-desc" data-lang="de">Das Qipao oder Cheongsam ist ein tailliertes rotes Seidenkleid mit Stickereien von Drachen und Phönixen — Symbole für Bräutigam und Braut. Rot steht für Glück und Liebe. Viele moderne Bräute kombinieren ein traditionelles Qipao mit einem westlichen weißen Kleid im Laufe des Tages.</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Changshan: larga túnica masculina también en rojo o negro con bordados dorados. Refleja honor y respeto. Surgido en la era Manchú del siglo XVII, evolucionó junto al qipao femenino.</div>
+              <div class="attire-desc" data-lang="en">Changshan: a long male robe also in red or black with gold embroidery, reflecting honor and respect. Originating in the 17th-century Manchu era, it evolved alongside the female qipao.</div>
+              <div class="attire-desc" data-lang="de">Changshan: eine lange männliche Robe in Rot oder Schwarz mit Goldstickerei, die Ehre und Respekt widerspiegelt. In der Mandschu-Ära des 17. Jahrhunderts entstanden, entwickelte er sich gemeinsam mit dem weiblichen Qipao.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COREA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #fff, #C60C30);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇰🇷</span>
+            <span class="attire-name"><span data-lang-inline="es">Corea</span><span data-lang-inline="en">Korea</span><span data-lang-inline="de">Korea</span></span>
+          </div>
+          <div class="attire-garment">Hanbok · Hwarot</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">El hanbok nupcial femenino incluye un jeogori (chaqueta corta) y una chima (falda larga con cintura alta) en rojos y azules vibrantes, con el hwarot, una capa exterior bordada con símbolos de longevidad y felicidad. Tradición de más de 1.500 años desde los Tres Reinos de Corea.</div>
+              <div class="attire-desc" data-lang="en">The bridal hanbok includes a jeogori (short jacket) and a chima (high-waisted full skirt) in vibrant reds and blues, with the hwarot, an embroidered outer coat bearing symbols of longevity and happiness. A tradition over 1,500 years old, dating to the Three Kingdoms of Korea.</div>
+              <div class="attire-desc" data-lang="de">Der Braut-Hanbok umfasst ein Jeogori (kurze Jacke) und ein Chima (hochgeschnittener Faltenrock) in lebhaften Rot- und Blautönen, mit dem Hwarot, einem bestickten Außenmantel mit Symbolen für Langlebigkeit und Glück. Eine über 1.500 Jahre alte Tradition aus der Zeit der Drei Königreiche Koreas.</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Hanbok masculino: jeogori con cuello amplio y baji (pantalón holgado) en tonos más sobrios. La tradición dice que el novio carga a su novia durante el día para mostrarle que puede apoyarse en él.</div>
+              <div class="attire-desc" data-lang="en">Male hanbok: jeogori with wide collar and baji (loose trousers) in more subdued tones. Tradition holds that the groom carries his bride at some point to show her he will support her.</div>
+              <div class="attire-desc" data-lang="de">Männlicher Hanbok: Jeogori mit breitem Kragen und Baji (weite Hosen) in gedämpfteren Tönen. Die Tradition besagt, dass der Bräutigam die Braut trägt, um ihr zu zeigen, dass er sie unterstützen wird.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NIGERIA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #008751, #fff, #008751);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇳🇬</span>
+            <span class="attire-name">Nigeria</span>
+          </div>
+          <div class="attire-garment">Aso Oke · Agbada · Gele</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">Las novias yoruba visten el aso oke, tela tejida a mano con patrones vibrantes que indican riqueza y estatus. Con iro (falda envolvente), buba (blusa), ipele (banda) y el gele, un turbante espectacular que corona el conjunto. Los colores se coordinan con el novio, expresando unidad familiar.</div>
+              <div class="attire-desc" data-lang="en">Yoruba brides wear aso oke, hand-woven fabric in vibrant patterns signifying wealth and status. With iro (wrapper skirt), buba (blouse), ipele (sash), and the gele, a spectacular head-wrap that crowns the look. Colors are coordinated with the groom to express family unity.</div>
+              <div class="attire-desc" data-lang="de">Yoruba-Bräute tragen Aso Oke, handgewebten Stoff in lebhaften Mustern, der Reichtum und Status bedeutet. Mit Iro (Wickelrock), Buba (Bluse), Ipele (Schärpe) und dem Gele, einem spektakulären Kopfwickel. Farben werden mit dem Bräutigam koordiniert, um familiäre Einheit auszudrücken.</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Agbada: majestuosa túnica de mangas anchas con bordados elaborados que simbolizan fortaleza y poder. Se lleva sobre sokoto (pantalón) y kaftan interior, con gorro fila a juego. Sus colores brillantes — amarillo, morado, azul — combinan con la novia.</div>
+              <div class="attire-desc" data-lang="en">Agbada: a majestic wide-sleeved robe with elaborate embroidery symbolizing strength and power. Worn over sokoto (trousers) and an inner kaftan, with a matching fila cap. Bright colors — yellow, purple, blue — coordinate with the bride.</div>
+              <div class="attire-desc" data-lang="de">Agbada: eine majestätische Robe mit breiten Ärmeln und aufwendigen Stickereien, die Stärke und Macht symbolisieren. Getragen über Sokoto (Hosen) und einem inneren Kaftan, mit passendem Fila-Hut. Leuchtende Farben — Gelb, Lila, Blau — koordinieren mit der Braut.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESCOCIA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(135deg, #003399 45%, #fff 45%, #fff 55%, #003399 55%), linear-gradient(45deg, #003399 45%, #fff 45%, #fff 55%, #003399 55%); background-blend-mode: overlay;background-color:#003399;"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+            <span class="attire-name"><span data-lang-inline="es">Escocia</span><span data-lang-inline="en">Scotland</span><span data-lang-inline="de">Schottland</span></span>
+          </div>
+          <div class="attire-garment">Highland Dress · Tartan</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">Vestido blanco o crema con banda o faja en el tartán del clan familiar, que tras la boda pasa al tartán del esposo — simbolizando la transición a la nueva familia. El tartán representa la identidad del clan y el orgullo de herencia.</div>
+              <div class="attire-desc" data-lang="en">White or cream dress with a sash or band in the family clan's tartan, which after the wedding transitions to the husband's tartan — symbolizing the move to the new family. Tartan represents clan identity and heritage pride.</div>
+              <div class="attire-desc" data-lang="de">Weißes oder cremefarbenes Kleid mit einer Schärpe im Familientartan des Clans, der nach der Hochzeit zum Tartan des Mannes wechselt — ein Symbol für den Übergang zur neuen Familie. Tartan repräsentiert die Clan-Identität und den Stolz auf das Erbe.</div>
+            </div>
+          </div>
+          <div class="attire-groom" style="margin-top:12px;">
+            <div>
+              <div class="attire-role groom"><span data-lang-inline="es">Novio</span><span data-lang-inline="en">Groom</span><span data-lang-inline="de">Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Highland dress completo: kilt en el tartán del clan con chaqueta Prince Charlie, camisa formal, sporran (bolsa de cuero frente al kilt), calcetines altos (kilt hose) y daga (sgian-dubh) al calcetín. El kilt moderno data del siglo XVIII; simboliza identidad y honor de clan.</div>
+              <div class="attire-desc" data-lang="en">Full Highland dress: kilt in clan tartan with a Prince Charlie jacket, formal shirt, sporran (leather pouch at the front), kilt hose (high socks), and a sgian-dubh (small dagger in the sock). The modern kilt dates to the 18th century and symbolizes clan identity and honor.</div>
+              <div class="attire-desc" data-lang="de">Vollständige Highland-Tracht: Kilt im Clan-Tartan mit Prince-Charlie-Jacke, formelles Hemd, Sporran (Ledertasche vorn), Kilt-Hose (hohe Strümpfe) und Sgian-Dubh (kleiner Dolch im Strumpf). Der moderne Kilt stammt aus dem 18. Jahrhundert und symbolisiert Clan-Identität und Ehre.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NORUEGA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to right, #EF2B2D, #fff, #002868);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇳🇴</span>
+            <span class="attire-name"><span data-lang-inline="es">Noruega</span><span data-lang-inline="en">Norway</span><span data-lang-inline="de">Norwegen</span></span>
+          </div>
+          <div class="attire-garment">Bunad</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia &amp; Novio</span><span data-lang-inline="en">Bride &amp; Groom</span><span data-lang-inline="de">Braut &amp; Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Ambos visten el bunad, traje nacional noruego con diseños que varían por región. Incluye bordados elaborados, joyería de plata (sølje) y prendas que pueden heredarse de generación en generación. Cada bunad cuenta la historia de la región de origen de quien lo porta.</div>
+              <div class="attire-desc" data-lang="en">Both wear the bunad, Norway's national costume with designs varying by region. Features elaborate embroidery, silver jewelry (sølje), and garments that can be passed down through generations. Each bunad tells the story of the wearer's region of origin.</div>
+              <div class="attire-desc" data-lang="de">Beide tragen den Bunad, Norwegens Nationaltracht mit regionsspezifischen Designs. Mit aufwendigen Stickereien, Silberschmuck (Sølje) und Kleidungsstücken, die von Generation zu Generation weitergegeben werden können. Jeder Bunad erzählt die Geschichte der Herkunftsregion des Trägers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IRAK -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to bottom, #CE1126, #fff, #000);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇮🇶</span>
+            <span class="attire-name"><span data-lang-inline="es">Irak</span><span data-lang-inline="en">Iraq</span><span data-lang-inline="de">Irak</span></span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">7 vestidos · Los 7 colores del arcoíris</span><span data-lang-inline="en">7 dresses · The 7 rainbow colors</span><span data-lang-inline="de">7 Kleider · Die 7 Regenbogenfarben</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">La novia iraquí ostenta posiblemente el récord mundial de cambios de vestuario: siete vestidos, uno por cada color del arcoíris, a lo largo de la celebración. Esta tradición simboliza la plenitud de la vida y los distintos caminos que la pareja recorrerá juntos.</div>
+              <div class="attire-desc" data-lang="en">The Iraqi bride possibly holds the world record for wardrobe changes: seven dresses, one for each rainbow color, throughout the celebration. This tradition symbolizes the fullness of life and the different paths the couple will walk together.</div>
+              <div class="attire-desc" data-lang="de">Die irakische Braut hält möglicherweise den Weltrekord an Kleiderwechseln: sieben Kleider, eines für jede Regenbogenfarbe, während der Feier. Diese Tradition symbolisiert die Fülle des Lebens und die verschiedenen Wege, die das Paar gemeinsam gehen wird.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GHANA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to bottom, #006B3F, #FCD116, #CE1126);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇬🇭</span>
+            <span class="attire-name">Ghana</span>
+          </div>
+          <div class="attire-garment">Kente</div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia &amp; Novio</span><span data-lang-inline="en">Bride &amp; Groom</span><span data-lang-inline="de">Braut &amp; Bräutigam</span></div>
+              <div class="attire-desc" data-lang="es">Ambos visten con tela kente, tejido a mano con patrones multicolores donde cada color tiene un significado: dorado = riqueza, verde = renovación, azul = paz. El kente es un símbolo de la realeza Ashanti y es uno de los tejidos más reconocibles de África.</div>
+              <div class="attire-desc" data-lang="en">Both wear kente cloth, hand-woven with multicolored patterns where each color carries meaning: gold = wealth, green = renewal, blue = peace. Kente is a symbol of Ashanti royalty and one of Africa's most recognizable textiles.</div>
+              <div class="attire-desc" data-lang="de">Beide tragen Kente-Stoff, handgewebt mit bunten Mustern, bei denen jede Farbe Bedeutung trägt: Gold = Reichtum, Grün = Erneuerung, Blau = Frieden. Kente ist ein Symbol der Ashanti-Könige und eines der bekanntesten Textilien Afrikas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANDALUCÍA / FLAMENCO -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(to bottom, #c60b1e, #ffc400, #c60b1e);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🇪🇸</span>
+            <span class="attire-name"><span data-lang-inline="es">España · Andalucía</span><span data-lang-inline="en">Spain · Andalusia</span><span data-lang-inline="de">Spanien · Andalusien</span></span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">Traje de flamenca · Traje de gitana</span><span data-lang-inline="en">Flamenco dress · Gypsy gown</span><span data-lang-inline="de">Flamencakleid · Gitanenkleid</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">El traje de flamenca tiene cola, volantes y lunares. En bodas tradicionales gitanas y andaluzas, los colores vibrantes y el baile son inseparables del ritual. La mantilla española — encaje negro o blanco sobre peineta — es otra icónica tradición nupcial de la Península.</div>
+              <div class="attire-desc" data-lang="en">The flamenco dress features a train, ruffles, and polka dots. In traditional Gypsy and Andalusian weddings, vibrant colors and dance are inseparable from the ritual. The Spanish mantilla — black or white lace over a comb — is another iconic bridal tradition of the Iberian Peninsula.</div>
+              <div class="attire-desc" data-lang="de">Das Flamencakleid hat Schleppe, Rüschen und Tupfen. Bei traditionellen Roma- und andalusischen Hochzeiten sind lebhafte Farben und Tanz untrennbar vom Ritual. Die spanische Mantilla — schwarze oder weiße Spitze über einem Kamm — ist eine weitere ikonische Brautüberlieferung der Iberischen Halbinsel.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LATINOAMERICA INDÍGENA -->
+      <div class="attire-card">
+        <div class="attire-flag" style="background: linear-gradient(135deg, #c8a05a, #7a9478, #c4705a);"></div>
+        <div class="attire-body">
+          <div class="attire-country">
+            <span class="attire-emoji">🌎</span>
+            <span class="attire-name"><span data-lang-inline="es">Latinoamérica indígena</span><span data-lang-inline="en">Indigenous Latin America</span><span data-lang-inline="de">Indigenes Lateinamerika</span></span>
+          </div>
+          <div class="attire-garment"><span data-lang-inline="es">Huipil · Pollera · Traje regional</span><span data-lang-inline="en">Huipil · Pollera · Regional dress</span><span data-lang-inline="de">Huipil · Pollera · Regionaltracht</span></div>
+          <div class="attire-bride">
+            <div>
+              <div class="attire-role bride"><span data-lang-inline="es">Novia</span><span data-lang-inline="en">Bride</span><span data-lang-inline="de">Braut</span></div>
+              <div class="attire-desc" data-lang="es">El huipil mexicano (prenda precolombina bordada con flores y figuras geométricas), la pollera panameña (bordada a mano en blanco y oro), los trajes mayas, quechuas y mapuches — cada uno un universo de colores, tejidos en telar de cintura y símbolos que narran la cosmología de su pueblo. Una riqueza textil única en el mundo.</div>
+              <div class="attire-desc" data-lang="en">The Mexican huipil (pre-Columbian garment embroidered with flowers and geometric figures), the Panamanian pollera (hand-embroidered in white and gold), Maya, Quechua, and Mapuche costumes — each a universe of colors, back-loom woven with symbols narrating their people's cosmology. A uniquely rich textile heritage.</div>
+              <div class="attire-desc" data-lang="de">Der mexikanische Huipil (präkolumbianisches Kleidungsstück mit Blumen und geometrischen Mustern), die panamaische Pollera (handbestickt in Weiß und Gold), Maya-, Quechua- und Mapuche-Kostüme — jedes ein Universum aus Farben, auf dem Hüftwebstuhl gewoben, mit Symbolen der Kosmologie ihres Volkes. Ein einzigartiges textiles Erbe.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /attire-grid -->
+
+    <!-- Closing note -->
+    <div class="bank-box" style="margin-top:40px;text-align:center;padding:28px 24px;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);color:var(--deep);line-height:1.5;margin-bottom:12px;" data-lang="es">"En todo el mundo y en todos los tiempos,<br/>el amor ha encontrado la manera de celebrarse."</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);color:var(--deep);line-height:1.5;margin-bottom:12px;" data-lang="en">"Across the world and throughout time,<br/>love has always found a way to celebrate itself."</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);color:var(--deep);line-height:1.5;margin-bottom:12px;" data-lang="de">"Überall auf der Welt und zu allen Zeiten<br/>hat die Liebe immer einen Weg gefunden, sich zu feiern."</p>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;">— Andrea Valentina &amp; César · 29.VII.2026 🌹</p>
+    </div>
+
+  </div><!-- /attire-section -->
+
+</div><!-- /tab-history -->
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <span class="fn">Andrea Valentina &amp; César</span>
+  <p>29 · VII · 2026 · Historisches Rathaus · Köln 🌹</p>
+</footer>
+
+<script>
+  function setLang(lang, btn) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function toggle(el) {
+    el.classList.toggle('open');
+  }
+  function setTab(tabId, btn) {
+    document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+// ═══════════════════════════════════════════════════════════
+// LANGUAGE SWITCHER
+// ═══════════════════════════════════════════════════════════
+function setLang(lang, btn) {
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  localStorage.setItem('selectedLang', lang);
+}
+
+// ═══════════════════════════════════════════════════════════
+// TAB NAVIGATION
+// ═══════════════════════════════════════════════════════════
+function setTab(tabName, btn) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-page').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Show selected tab
+  document.getElementById('tab-' + tabName).classList.add('active');
+  
+  // Update button styles
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  
+  // Save preference
+  localStorage.setItem('selectedTab', tabName);
+}
+
+// ═══════════════════════════════════════════════════════════
+// ACCORDION TOGGLE (Gift Categories)
+// ═══════════════════════════════════════════════════════════
+function toggle(element) {
+  element.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RESTORE USER PREFERENCES ON PAGE LOAD
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() {
+  // Restore language
+  const savedLang = localStorage.getItem('selectedLang') || 'es';
+  const langBtn = document.querySelector('.lang-btn[onclick*="' + savedLang + '"]');
+  if (langBtn) {
+    setLang(savedLang, langBtn);
+  }
+  
+  // Restore tab
+  const savedTab = localStorage.getItem('selectedTab') || 'gifts';
+  const tabBtn = document.querySelector('.tab-btn[onclick*="' + savedTab + '"]');
+  if (tabBtn) {
+    setTab(savedTab, tabBtn);
+  }
+});
+</script>
+</body>
+</html>
