@@ -14,7 +14,6 @@
     --purple-deep: #6b4fa0;
     --white: #ffffff;
     --gold: #d4af37;
-    --gold-light: #e6c956;
     --text: #3a3a3a;
     --muted: #8b7b9e;
   }
@@ -29,7 +28,7 @@
     min-height: 100vh;
   }
 
-  /* ── LANG BAR ── */
+  /* LANG BAR */
   .lang-bar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -62,7 +61,7 @@
     color: #fff;
   }
 
-  /* ── TAB NAV ── */
+  /* TAB NAV */
   .tab-nav {
     position: fixed;
     top: 44px; left: 0; right: 0;
@@ -100,7 +99,7 @@
 
   .hero { padding-top: 108px !important; }
 
-  /* ── HISTORY PAGE ── */
+  /* HISTORY PAGE */
   .hist-hero {
     padding: 108px 24px 56px;
     text-align: center;
@@ -198,22 +197,13 @@
     line-height: 1.85;
   }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     padding: 90px 24px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
     background: linear-gradient(to bottom, var(--lilac), var(--lilac-light));
-  }
-
-  .botanical-arch {
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: min(700px, 100vw);
-    pointer-events: none;
-    opacity: .4;
   }
 
   .hero-eyebrow {
@@ -262,7 +252,7 @@
     animation: riseUp 1s .25s ease both;
   }
 
-  /* ── MAIN CONTENT ── */
+  /* MAIN CONTENT */
   main {
     max-width: 760px;
     margin: 0 auto;
@@ -285,7 +275,7 @@
   }
   .sec-title em { font-style: italic; color: var(--gold); }
 
-  /* ── AMAZON FEATURE CARD ── */
+  /* AMAZON CARD */
   .amazon-card {
     background: var(--white);
     border: 2px solid var(--gold);
@@ -317,7 +307,6 @@
     color: var(--purple-deep);
     margin-bottom: 20px;
   }
-  .amazon-badge svg { width: 16px; height: 16px; }
   .amazon-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(24px, 4vw, 34px);
@@ -354,7 +343,6 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(155,127,191,.3);
   }
-  .amazon-btn svg { width: 16px; height: 16px; }
   .amazon-items-preview {
     margin-top: 24px;
     padding-top: 20px;
@@ -372,7 +360,7 @@
     color: var(--muted);
   }
 
-  /* ── GIFT CATEGORIES ── */
+  /* GIFT CATEGORIES */
   .cats-grid {
     display: grid;
     gap: 14px;
@@ -435,7 +423,6 @@
     display: none;
     padding: 0 24px 24px;
     border-top: 1px solid var(--lilac-dark);
-    margin-top: 0;
   }
   .cat-card.open .cat-body { display: block; }
   .cat-body-inner { padding-top: 18px; }
@@ -494,7 +481,7 @@
   }
   .bank-box strong { color: var(--purple-deep); }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 100%);
     color: rgba(255,255,255,.7);
@@ -511,7 +498,7 @@
   }
   footer p { font-size: 12px; letter-spacing: 1.5px; }
 
-  /* ── LANG HELPERS ── */
+  /* LANG HELPERS */
   [data-lang] { display: none; }
   [data-lang-inline] { display: none; }
   .lang-es [data-lang="es"],
@@ -521,7 +508,7 @@
   .lang-en [data-lang-inline="en"],
   .lang-de [data-lang-inline="de"] { display: inline; }
 
-  /* ── ANIMATION ── */
+  /* ANIMATION */
   @keyframes riseUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -532,7 +519,6 @@
     .cat-header { padding: 16px 18px; }
     .cat-body { padding: 0 18px 20px; }
     .timeline-item { grid-template-columns: 60px 1fr; gap: 14px; }
-    .timeline-card { padding: 18px 16px; }
     .timeline-image { height: 150px; }
   }
 </style>
@@ -560,15 +546,13 @@
   </button>
 </div>
 
-<!-- ════════════════════════════════ -->
-<!--  TAB 1 — GIFTS                  -->
-<!-- ════════════════════════════════ -->
+<!-- TAB 1 - GIFTS -->
 <div id="tab-gifts" class="tab-page active">
 <div class="hero">
   <p class="hero-eyebrow">
-    <span data-lang-inline="es">Andrea Valentina &amp; César · 2026</span>
-    <span data-lang-inline="en">Andrea Valentina &amp; César · 2026</span>
-    <span data-lang-inline="de">Andrea Valentina &amp; César · 2026</span>
+    <span data-lang-inline="es">Andrea Valentina &amp; César</span>
+    <span data-lang-inline="en">Andrea Valentina &amp; César</span>
+    <span data-lang-inline="de">Andrea Valentina &amp; César</span>
   </p>
 
   <h1 class="hero-title">
@@ -581,18 +565,17 @@
     <span class="petal-center">💜</span>
   </div>
 
-  <p class="hero-note" data-lang="es">Tu presencia es el mejor regalo. Si aun así deseas obsequiarnos algo, aquí encontrarás ideas para cada posibilidad y presupuesto.</p>
-  <p class="hero-note" data-lang="en">Your presence is already the greatest gift. But if you'd still like to give us something, here you'll find ideas for every possibility and budget.</p>
-  <p class="hero-note" data-lang="de">Deine Anwesenheit ist das schönste Geschenk. Falls du uns trotzdem etwas mitbringen möchtest, findest du hier Ideen für jede Möglichkeit und jedes Budget.</p>
+  <p class="hero-note" data-lang="es">Tu presencia es el mejor regalo. Si deseas obsequiarnos algo, aquí encontrarás ideas para cada posibilidad y presupuesto.</p>
+  <p class="hero-note" data-lang="en">Your presence is the greatest gift. If you'd like to give us something, here you'll find ideas for every possibility and budget.</p>
+  <p class="hero-note" data-lang="de">Deine Anwesenheit ist das schönste Geschenk. Wenn du uns etwas schenken möchtest, findest du hier Ideen für jede Möglichkeit und jedes Budget.</p>
 </div>
 
-<!-- ══════ MAIN ══════ -->
 <main>
 
-  <!-- ─── AMAZON LIST ─── -->
+  <!-- AMAZON LIST -->
   <div class="amazon-card">
     <div class="amazon-badge">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 14.5c-2.5 1.8-6.2 2.7-9.3.8-.2-.1-.1-.3.1-.2 3 1.7 6.7.9 9.5-1l-.5 2.5c-1.2.7-2.8 1-4 1-4 0-7-3-7-7s3-7 7-7 7 3 7 7v1.5z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
       <span data-lang-inline="es">Lista oficial en Amazon.de</span>
       <span data-lang-inline="en">Official Amazon.de wishlist</span>
       <span data-lang-inline="de">Offizielle Amazon.de Wunschliste</span>
@@ -604,39 +587,32 @@
       <span data-lang-inline="de"><em>Unsere Liste</em> auf Amazon</span>
     </h2>
 
-    <p class="amazon-desc" data-lang="es">Hemos seleccionado objetos especiales para nuestro nuevo hogar. Puedes ver la lista completa, filtrar por precio y marcar lo que regalarás para que no haya duplicados.</p>
-    <p class="amazon-desc" data-lang="en">We've chosen special items for our new home. You can browse the full list, filter by price, and mark what you'll gift to avoid duplicates.</p>
-    <p class="amazon-desc" data-lang="de">Wir haben besondere Artikel für unser neues Zuhause ausgewählt. Du kannst die vollständige Liste durchsehen, nach Preis filtern und markieren, was du schenkst.</p>
+    <p class="amazon-desc" data-lang="es">Hemos seleccionado artículos especiales para nuestro hogar. Filtrar por precio y marcar lo que regalas.</p>
+    <p class="amazon-desc" data-lang="en">We've chosen special items for our home. Filter by price and mark what you'll gift.</p>
+    <p class="amazon-desc" data-lang="de">Wir haben spezielle Artikel für unser Haus gewählt. Nach Preis filtern und dein Geschenk markieren.</p>
 
     <a class="amazon-btn" href="https://www.amazon.de/wedding/invite-partner?registryID=1Q5X8XRFK1B1L&roleID=eb8b3bdb-addd-4978-bada-bf058df4953d&code=1070520063" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v4a1 1 0 001 1h4m-5-5H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5zm-3 9H8m4 0h-1m1 0v4m-4 0h4"/></svg>
       <span data-lang-inline="es">Ver lista en Amazon →</span>
       <span data-lang-inline="en">View Amazon list →</span>
       <span data-lang-inline="de">Amazon-Liste ansehen →</span>
     </a>
 
     <div class="amazon-items-preview">
-      <span class="preview-tag" data-lang-inline="es">🏠 Hogar</span>
-      <span class="preview-tag" data-lang-inline="en">🏠 Home</span>
-      <span class="preview-tag" data-lang-inline="de">🏠 Zuhause</span>
-      <span class="preview-tag" data-lang-inline="es">🍳 Cocina</span>
-      <span class="preview-tag" data-lang-inline="en">🍳 Kitchen</span>
-      <span class="preview-tag" data-lang-inline="de">🍳 Küche</span>
-      <span class="preview-tag" data-lang-inline="es">🛏 Dormitorio</span>
-      <span class="preview-tag" data-lang-inline="en">🛏 Bedroom</span>
-      <span class="preview-tag" data-lang-inline="de">🛏 Schlafzimmer</span>
+      <span class="preview-tag">🏠 Hogar</span>
+      <span class="preview-tag">🍳 Cocina</span>
+      <span class="preview-tag">🛏 Dormitorio</span>
     </div>
   </div>
 
   <p class="sec-label">
-    <span data-lang-inline="es">Más formas de celebrarnos</span>
-    <span data-lang-inline="en">More ways to celebrate with us</span>
-    <span data-lang-inline="de">Weitere Möglichkeiten, mit uns zu feiern</span>
+    <span data-lang-inline="es">Otras formas</span>
+    <span data-lang-inline="en">Other ways</span>
+    <span data-lang-inline="de">Andere Möglichkeiten</span>
   </p>
   <h2 class="sec-title">
-    <span data-lang-inline="es">Otras <em>ideas</em></span>
-    <span data-lang-inline="en">Other <em>ideas</em></span>
-    <span data-lang-inline="de">Weitere <em>Ideen</em></span>
+    <span data-lang-inline="es">De celebrarnos</span>
+    <span data-lang-inline="en">To celebrate</span>
+    <span data-lang-inline="de">Uns zu feiern</span>
   </h2>
 
   <div class="cats-grid">
@@ -648,27 +624,20 @@
         <div class="cat-text">
           <div class="cat-name">Gift Cards</div>
           <div class="cat-tagline">
-            <span data-lang-inline="es">Fáciles de enviar desde cualquier país</span>
-            <span data-lang-inline="en">Easy to send from anywhere</span>
-            <span data-lang-inline="de">Einfach aus jedem Land versendbar</span>
+            <span data-lang-inline="es">Fáciles de enviar</span>
+            <span data-lang-inline="en">Easy to send</span>
+            <span data-lang-inline="de">Einfach zu versenden</span>
           </div>
         </div>
         <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
       <div class="cat-body">
         <div class="cat-body-inner">
-          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="es">Puedes comprarlas online y enviarnos el código por WhatsApp o correo.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="en">Buy them online and send us the code via WhatsApp or email.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:14px;" data-lang="de">Online kaufen und uns den Code per WhatsApp oder E-Mail schicken.</p>
           <div class="gc-logos">
-            <a class="gc-logo" href="https://www.amazon.de/-/en/b?ie=UTF8&node=1571256031" target="_blank" rel="noopener">🛒 Amazon.de</a>
-            <a class="gc-logo" href="https://www.ikea.com/de/de/gift-card/" target="_blank" rel="noopener">🏠 IKEA</a>
-            <a class="gc-logo" href="https://www.spotify.com/de/gift-card/" target="_blank" rel="noopener">🎵 Spotify</a>
-            <a class="gc-logo" href="https://www.netflix.com/de/gift-cards" target="_blank" rel="noopener">🎬 Netflix</a>
-            <a class="gc-logo" href="https://www.zalando.de/gutschein/" target="_blank" rel="noopener">👗 Zalando</a>
-            <a class="gc-logo" href="https://www.douglas.de/de/c/gutscheine/00100000" target="_blank" rel="noopener">🌸 Douglas</a>
-            <a class="gc-logo" href="https://www.rewe.de/service/gutscheine/" target="_blank" rel="noopener">🛍 REWE</a>
-            <a class="gc-logo" href="https://www.saturn.de/de/geschenkkarten.html" target="_blank" rel="noopener">📱 Saturn</a>
+            <a class="gc-logo" href="https://www.amazon.de" target="_blank" rel="noopener">🛒 Amazon</a>
+            <a class="gc-logo" href="https://www.ikea.com/de" target="_blank" rel="noopener">🏠 IKEA</a>
+            <a class="gc-logo" href="https://www.spotify.com/de" target="_blank" rel="noopener">🎵 Spotify</a>
+            <a class="gc-logo" href="https://www.netflix.com/de" target="_blank" rel="noopener">🎬 Netflix</a>
           </div>
         </div>
       </div>
@@ -680,176 +649,23 @@
         <div class="cat-icon">💛</div>
         <div class="cat-text">
           <div class="cat-name">
-            <span data-lang-inline="es">Aporte en efectivo</span>
-            <span data-lang-inline="en">Cash contribution</span>
-            <span data-lang-inline="de">Geldgeschenk</span>
+            <span data-lang-inline="es">Efectivo</span>
+            <span data-lang-inline="en">Cash</span>
+            <span data-lang-inline="de">Bargeld</span>
           </div>
           <div class="cat-tagline">
-            <span data-lang-inline="es">Simple, flexible y muy apreciado</span>
-            <span data-lang-inline="en">Simple, flexible and greatly appreciated</span>
-            <span data-lang-inline="de">Einfach, flexibel und sehr willkommen</span>
+            <span data-lang-inline="es">Simple y flexible</span>
+            <span data-lang-inline="en">Simple and flexible</span>
+            <span data-lang-inline="de">Einfach und flexibel</span>
           </div>
         </div>
         <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
       <div class="cat-body">
         <div class="cat-body-inner">
-          <ul class="item-list">
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">PayPal · Revolut · Wise — escríbenos y te pasamos los datos 💌</span>
-              <span data-lang-inline="en">PayPal · Revolut · Wise — message us for details 💌</span>
-              <span data-lang-inline="de">PayPal · Revolut · Wise — schreib uns für die Details 💌</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">Transferencia bancaria (IBAN disponible por solicitud)</span>
-              <span data-lang-inline="en">Bank transfer (IBAN available on request)</span>
-              <span data-lang-inline="de">Banküberweisung (IBAN auf Anfrage erhältlich)</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">Sobre en efectivo — entregar a familiares directos</span>
-              <span data-lang-inline="en">Cash envelope — hand to close family members</span>
-              <span data-lang-inline="de">Briefumschlag — an enge Familienmitglieder übergeben</span>
-            </li>
-          </ul>
-          <div class="bank-box" data-lang="es">💌 Para datos bancarios o PayPal, escríbenos directamente. Con gusto te los compartimos.</div>
-          <div class="bank-box" data-lang="en">💌 For bank or PayPal details, message us directly. We'll be happy to share them.</div>
-          <div class="bank-box" data-lang="de">💌 Für Bankdaten oder PayPal-Infos schreib uns direkt. Wir teilen sie gerne mit dir.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EXPERIENCIAS -->
-    <div class="cat-card" onclick="toggle(this)">
-      <div class="cat-header">
-        <div class="cat-icon">🌿</div>
-        <div class="cat-text">
-          <div class="cat-name">
-            <span data-lang-inline="es">Servicios &amp; experiencias</span>
-            <span data-lang-inline="en">Services &amp; experiences</span>
-            <span data-lang-inline="de">Erlebnisse &amp; Dienstleistungen</span>
-          </div>
-          <div class="cat-tagline">
-            <span data-lang-inline="es">Momentos que atesoraremos</span>
-            <span data-lang-inline="en">Moments we'll always treasure</span>
-            <span data-lang-inline="de">Momente, die wir in Erinnerung behalten</span>
-          </div>
-        </div>
-        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="cat-body">
-        <div class="cat-body-inner">
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Compra el voucher online y envíanos el código — o escríbenos para coordinar juntos.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">Buy the voucher online and send us the code — or message us to coordinate together.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Kauf den Gutschein online und schick uns den Code — oder schreib uns, um gemeinsam zu koordinieren.</p>
-          <ul class="item-list">
-            <li><span class="item-dot"></span>
-              <div>
-                <span data-lang-inline="es">🏨 Noche de hotel romántico en Köln</span>
-                <span data-lang-inline="en">🏨 Romantic hotel night in Köln</span>
-                <span data-lang-inline="de">🏨 Romantische Hotelnacht in Köln</span>
-                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
-                  <a href="https://www.savoy.de/en/vouchers" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">SAVOY Hotel Köln →</a>
-                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer →</a>
-                </div>
-              </div>
-            </li>
-            <li><span class="item-dot"></span>
-              <div>
-                <span data-lang-inline="es">🍽 Cena especial para dos</span>
-                <span data-lang-inline="en">🍽 Special dinner for two</span>
-                <span data-lang-inline="de">🍽 Besonderes Abendessen für zwei</span>
-                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
-                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer →</a>
-                </div>
-              </div>
-            </li>
-            <li><span class="item-dot"></span>
-              <div>
-                <span data-lang-inline="es">💆 Sesión de spa o masajes para dos</span>
-                <span data-lang-inline="en">💆 Spa or couples massage session</span>
-                <span data-lang-inline="de">💆 Spa- oder Paarmassage für zwei</span>
-                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
-                  <a href="https://www.savoy.de/en/vouchers" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">SAVOY Spa Köln →</a>
-                  <a href="https://www.jochen-schweizer.de/geschenke/geschenkbox/l/svfxg" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer →</a>
-                </div>
-              </div>
-            </li>
-            <li><span class="item-dot"></span>
-              <div>
-                <span data-lang-inline="es">✈️ Vuelo o tren para la luna de miel</span>
-                <span data-lang-inline="en">✈️ Flight or train for the honeymoon</span>
-                <span data-lang-inline="de">✈️ Flug oder Zug für die Flitterwochen</span>
-                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
-                  <a href="https://www.lufthansa.com/de/de/gift-card" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Lufthansa Gift Card →</a>
-                  <a href="https://www.bahn.de/service/buchung-reservierung/gutscheine" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Deutsche Bahn →</a>
-                </div>
-              </div>
-            </li>
-            <li><span class="item-dot"></span>
-              <div>
-                <span data-lang-inline="es">🎟 Experiencia o aventura a elegir</span>
-                <span data-lang-inline="en">🎟 Experience or adventure of their choice</span>
-                <span data-lang-inline="de">🎟 Erlebnis oder Abenteuer nach Wahl</span>
-                <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
-                  <a href="https://www.jochen-schweizer.de/geschenkgutscheine/Wertgutscheine/l/gwtim" target="_blank" rel="noopener" class="gc-logo" style="font-size:11px;padding:4px 10px;">Jochen Schweizer →</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- CON TIEMPO Y AMOR -->
-    <div class="cat-card" onclick="toggle(this)">
-      <div class="cat-header">
-        <div class="cat-icon">🤝</div>
-        <div class="cat-text">
-          <div class="cat-name">
-            <span data-lang-inline="es">Con tiempo &amp; amor</span>
-            <span data-lang-inline="en">With time &amp; love</span>
-            <span data-lang-inline="de">Mit Zeit &amp; Liebe</span>
-          </div>
-          <div class="cat-tagline">
-            <span data-lang-inline="es">Para quienes quieren colaborar de otra manera</span>
-            <span data-lang-inline="en">For those who want to contribute differently</span>
-            <span data-lang-inline="de">Für alle, die anders beitragen möchten</span>
-          </div>
-        </div>
-        <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-      <div class="cat-body">
-        <div class="cat-body-inner">
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="es">Si tienes una habilidad que puedas ofrecer, ¡nos encantaría saberlo! Escríbenos.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="en">If you have a skill you can offer, we'd love to hear it! Message us.</p>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:16px;" data-lang="de">Wenn du eine Fähigkeit anbietest, freuen wir uns! Schreib uns.</p>
-          <ul class="item-list">
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">📸 Fotografía o video (si tienes experiencia)</span>
-              <span data-lang-inline="en">📸 Photography or video (if you have experience)</span>
-              <span data-lang-inline="de">📸 Fotos oder Video (bei Erfahrung)</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🎨 Decoración floral o ambiental</span>
-              <span data-lang-inline="en">🎨 Floral or ambient decoration</span>
-              <span data-lang-inline="de">🎨 Blumen- oder Raumdekoration</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🎂 Pastel o postres especiales</span>
-              <span data-lang-inline="en">🎂 Special cake or desserts</span>
-              <span data-lang-inline="de">🎂 Besondere Kuchen oder Desserts</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🎵 Música o DJ</span>
-              <span data-lang-inline="en">🎵 Music or DJ</span>
-              <span data-lang-inline="de">🎵 Musik oder DJ</span>
-            </li>
-            <li><span class="item-dot"></span>
-              <span data-lang-inline="es">🚗 Transporte o logística</span>
-              <span data-lang-inline="en">🚗 Transport or logistics</span>
-              <span data-lang-inline="de">🚗 Transport oder Logistik</span>
-            </li>
-          </ul>
+          <div class="bank-box" data-lang="es">💌 PayPal, Revolut o Wise — escríbenos</div>
+          <div class="bank-box" data-lang="en">💌 PayPal, Revolut or Wise — message us</div>
+          <div class="bank-box" data-lang="de">💌 PayPal, Revolut oder Wise — schreib uns</div>
         </div>
       </div>
     </div>
@@ -859,9 +675,7 @@
 </main>
 </div>
 
-<!-- ════════════════════════════════ -->
-<!--  TAB 2 — HISTORY              -->
-<!-- ════════════════════════════════ -->
+<!-- TAB 2 - HISTORY -->
 <div id="tab-history" class="tab-page">
 <div class="hist-hero">
   <h1 class="hero-title">
@@ -869,9 +683,6 @@
     <span data-lang-inline="en"><em>The</em><br/>History of Marriage</span>
     <span data-lang-inline="de"><em>Die</em><br/>Geschichte der Ehe</span>
   </h1>
-  <p class="hero-note" style="margin-top: 24px;" data-lang="es">Una tradición de amor, compromiso y unión a través de los siglos</p>
-  <p class="hero-note" style="margin-top: 24px;" data-lang="en">A tradition of love, commitment and union through the centuries</p>
-  <p class="hero-note" style="margin-top: 24px;" data-lang="de">Eine Tradition der Liebe, des Engagements und der Einheit durch die Jahrhunderte</p>
 </div>
 
 <section class="timeline">
@@ -884,13 +695,10 @@
     <div class="timeline-content">
       <div class="timeline-card">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop" alt="Ancient marriage" class="timeline-image">
-        <div class="timeline-era" data-lang="es">Los Inicios</div>
-        <div class="timeline-era" data-lang="en">The Beginnings</div>
-        <div class="timeline-era" data-lang="de">Die Anfänge</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio en la antigüedad</span><span data-lang-inline="en">Marriage in antiquity</span><span data-lang-inline="de">Die Ehe in der Antike</span></h3>
-        <p class="timeline-body" data-lang="es">En las civilizaciones antiguas, el matrimonio era una institución fundamental que unía familias y comunidades. Griegos, romanos y otras culturas celebraban la unión con rituales sagrados que simbolizaban el compromiso eterno.</p>
-        <p class="timeline-body" data-lang="en">In ancient civilizations, marriage was a fundamental institution that united families and communities. Greeks, Romans and other cultures celebrated the union with sacred rituals that symbolized eternal commitment.</p>
-        <p class="timeline-body" data-lang="de">In den antiken Zivilisationen war die Ehe eine grundlegende Institution, die Familien und Gemeinden vereinte. Griechen, Römer und andere Kulturen feierten die Vereinigung mit heiligen Ritualen, die ewige Verpflichtung symbolisierten.</p>
+        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio antiguo</span><span data-lang-inline="en">Ancient marriage</span><span data-lang-inline="de">Antike Ehe</span></h3>
+        <p class="timeline-body" data-lang="es">Las civilizaciones antiguas celebraban la unión con rituales sagrados que simbolizaban el compromiso eterno entre familias.</p>
+        <p class="timeline-body" data-lang="en">Ancient civilizations celebrated union with sacred rituals symbolizing eternal commitment between families.</p>
+        <p class="timeline-body" data-lang="de">Alte Zivilisationen feierten die Vereinigung mit heiligen Ritualen, die ewige Verpflichtung zwischen Familien symbolisierten.</p>
       </div>
     </div>
   </div>
@@ -904,13 +712,10 @@
     <div class="timeline-content">
       <div class="timeline-card">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop" alt="Medieval wedding" class="timeline-image">
-        <div class="timeline-era" data-lang="es">Tradición y Fe</div>
-        <div class="timeline-era" data-lang="en">Tradition and Faith</div>
-        <div class="timeline-era" data-lang="de">Tradition und Glaube</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">La consagración religiosa</span><span data-lang-inline="en">Religious consecration</span><span data-lang-inline="de">Die religiöse Weihe</span></h3>
-        <p class="timeline-body" data-lang="es">Durante la Edad Media, la Iglesia transformó el matrimonio en un sacramento sagrado. Las ceremonias se realizaban en templos con testigos, estableciendo así el matrimonio como un acto solemne y divino ante Dios.</p>
-        <p class="timeline-body" data-lang="en">During the Middle Ages, the Church transformed marriage into a sacred sacrament. Ceremonies were performed in temples with witnesses, establishing marriage as a solemn and divine act before God.</p>
-        <p class="timeline-body" data-lang="de">Im Mittelalter verwandelte die Kirche die Ehe in ein heiliges Sakrament. Zeremonien wurden in Tempeln mit Zeugen durchgeführt und etablierten die Ehe als feierlicher und göttlicher Akt vor Gott.</p>
+        <h3 class="timeline-title"><span data-lang-inline="es">El sacramento</span><span data-lang-inline="en">The sacrament</span><span data-lang-inline="de">Das Sakrament</span></h3>
+        <p class="timeline-body" data-lang="es">La Iglesia transformó el matrimonio en un sacramento sagrado con ceremonias solemnes ante Dios.</p>
+        <p class="timeline-body" data-lang="en">The Church transformed marriage into a sacred sacrament with solemn ceremonies before God.</p>
+        <p class="timeline-body" data-lang="de">Die Kirche verwandelte die Ehe in ein heiliges Sakrament mit feierlichen Zeremonien vor Gott.</p>
       </div>
     </div>
   </div>
@@ -924,13 +729,10 @@
     <div class="timeline-content">
       <div class="timeline-card">
         <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=400&h=200&fit=crop" alt="Renaissance celebration" class="timeline-image">
-        <div class="timeline-era" data-lang="es">Celebración y Arte</div>
-        <div class="timeline-era" data-lang="en">Celebration and Art</div>
-        <div class="timeline-era" data-lang="de">Feier und Kunst</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio como celebración</span><span data-lang-inline="en">Marriage as celebration</span><span data-lang-inline="de">Die Ehe als Feier</span></h3>
-        <p class="timeline-body" data-lang="es">El Renacimiento elevó la ceremonia matrimonial a una forma de arte. Las celebraciones se volvieron más elaboradas, con fiestas que duraban días, música, danzas y banquetes que reflejaban la importancia del evento y el amor entre los novios.</p>
-        <p class="timeline-body" data-lang="en">The Renaissance elevated the wedding ceremony to an art form. Celebrations became more elaborate, with festivals lasting days, music, dances and banquets reflecting the importance of the event and the love between the newlyweds.</p>
-        <p class="timeline-body" data-lang="de">Die Renaissance erhob die Hochzeitszeremonie zur Kunstform. Feste wurden aufwendiger, mit mehrtägigen Feiern, Musik, Tänzen und Banketten, die die Bedeutung des Ereignisses und die Liebe zwischen den Brautleuten widerspiegelten.</p>
+        <h3 class="timeline-title"><span data-lang-inline="es">La celebración</span><span data-lang-inline="en">The celebration</span><span data-lang-inline="de">Die Feier</span></h3>
+        <p class="timeline-body" data-lang="es">El Renacimiento elevó la ceremonia a una forma de arte con celebraciones elaboradas de varios días.</p>
+        <p class="timeline-body" data-lang="en">The Renaissance elevated the ceremony to an art form with elaborate multi-day celebrations.</p>
+        <p class="timeline-body" data-lang="de">Die Renaissance erhob die Zeremonie zur Kunstform mit aufwendigen mehrtägigen Feiern.</p>
       </div>
     </div>
   </div>
@@ -944,13 +746,10 @@
     <div class="timeline-content">
       <div class="timeline-card">
         <img src="https://images.unsplash.com/photo-1539943128762-de42e49da655?w=400&h=200&fit=crop" alt="Victorian wedding" class="timeline-image">
-        <div class="timeline-era" data-lang="es">Romanticismo y Tradición</div>
-        <div class="timeline-era" data-lang="en">Romanticism and Tradition</div>
-        <div class="timeline-era" data-lang="de">Romantik und Tradition</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">El romanticismo matrimonial</span><span data-lang-inline="en">Matrimonial romanticism</span><span data-lang-inline="de">Der Heiratsroman</span></h3>
-        <p class="timeline-body" data-lang="es">La era victoriana introdujo nuevas tradiciones que persisten hoy: el vestido blanco, los anillos de diamantes y las ceremonias románticas. El matrimonio se celebraba como la culminación del amor romántico y el símbolo del futuro compartido.</p>
-        <p class="timeline-body" data-lang="en">The Victorian era introduced new traditions that persist today: the white dress, diamond rings and romantic ceremonies. Marriage was celebrated as the culmination of romantic love and the symbol of a shared future.</p>
-        <p class="timeline-body" data-lang="de">Die viktorianische Ära führte neue Traditionen ein, die bis heute bestehen: das weiße Kleid, Diamantringe und romantische Zeremonien. Die Ehe wurde als Höhepunkt der romantischen Liebe und Symbol einer gemeinsamen Zukunft gefeiert.</p>
+        <h3 class="timeline-title"><span data-lang-inline="es">El romanticismo</span><span data-lang-inline="en">Romanticism</span><span data-lang-inline="de">Die Romantik</span></h3>
+        <p class="timeline-body" data-lang="es">La era victoriana introdujo tradiciones que persisten hoy: vestido blanco, anillos y ceremonias románticas.</p>
+        <p class="timeline-body" data-lang="en">The Victorian era introduced traditions that persist today: white dress, rings and romantic ceremonies.</p>
+        <p class="timeline-body" data-lang="de">Die viktorianische Ära führte Traditionen ein, die bis heute bestehen: weißes Kleid, Ringe und romantische Zeremonien.</p>
       </div>
     </div>
   </div>
@@ -963,13 +762,10 @@
     <div class="timeline-content">
       <div class="timeline-card">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop" alt="Modern wedding" class="timeline-image">
-        <div class="timeline-era" data-lang="es">Amor y Libertad</div>
-        <div class="timeline-era" data-lang="en">Love and Freedom</div>
-        <div class="timeline-era" data-lang="de">Liebe und Freiheit</div>
-        <h3 class="timeline-title"><span data-lang-inline="es">El matrimonio moderno</span><span data-lang-inline="en">Modern marriage</span><span data-lang-inline="de">Die moderne Ehe</span></h3>
-        <p class="timeline-body" data-lang="es">Hoy el matrimonio es una expresión personal del amor, donde las parejas crean sus propias tradiciones. Conservamos los rituales que nos inspiran mientras celebramos la libertad de elegir cómo vivir esta hermosa unión, con respeto, compromiso y amor genuino.</p>
-        <p class="timeline-body" data-lang="en">Today marriage is a personal expression of love, where couples create their own traditions. We preserve the rituals that inspire us while celebrating the freedom to choose how to live this beautiful union, with respect, commitment and genuine love.</p>
-        <p class="timeline-body" data-lang="de">Heute ist die Ehe ein persönlicher Ausdruck der Liebe, wo Paare ihre eigenen Traditionen schaffen. Wir bewahren die Rituale, die uns inspirieren, während wir die Freiheit feiern, diese schöne Vereinigung mit Respekt, Engagement und echter Liebe zu gestalten.</p>
+        <h3 class="timeline-title"><span data-lang-inline="es">Amor libre</span><span data-lang-inline="en">Free love</span><span data-lang-inline="de">Freie Liebe</span></h3>
+        <p class="timeline-body" data-lang="es">Hoy el matrimonio es una expresión personal donde las parejas crean sus propias tradiciones con respeto y amor genuino.</p>
+        <p class="timeline-body" data-lang="en">Today marriage is a personal expression where couples create their own traditions with respect and genuine love.</p>
+        <p class="timeline-body" data-lang="de">Heute ist die Ehe ein persönlicher Ausdruck, bei dem Paare ihre eigenen Traditionen mit Respekt und echter Liebe schaffen.</p>
       </div>
     </div>
   </div>
@@ -977,9 +773,7 @@
 
 </div>
 
-<!-- ════════════════════════════════ -->
-<!--  FOOTER                          -->
-<!-- ════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <span class="fn">Andrea &amp; César</span>
   <p data-lang="es">Con amor y gratitud 💜</p>
@@ -988,9 +782,6 @@
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════════════════
-// LANGUAGE SWITCHER
-// ═══════════════════════════════════════════════════════════
 function setLang(lang, btn) {
   document.body.className = 'lang-' + lang;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -998,33 +789,18 @@ function setLang(lang, btn) {
   localStorage.setItem('selectedLang', lang);
 }
 
-// ═══════════════════════════════════════════════════════════
-// TAB NAVIGATION
-// ═══════════════════════════════════════════════════════════
 function setTab(tabName, btn) {
-  document.querySelectorAll('.tab-page').forEach(tab => {
-    tab.classList.remove('active');
-  });
+  document.querySelectorAll('.tab-page').forEach(tab => tab.classList.remove('active'));
   document.getElementById('tab-' + tabName).classList.add('active');
-  
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.remove('active');
-  });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  
   localStorage.setItem('selectedTab', tabName);
 }
 
-// ═══════════════════════════════════════════════════════════
-// ACCORDION TOGGLE (Gift Categories)
-// ═══════════════════════════════════════════════════════════
 function toggle(element) {
   element.classList.toggle('open');
 }
 
-// ═══════════════════════════════════════════════════════════
-// RESTORE USER PREFERENCES ON PAGE LOAD
-// ═══════════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', function() {
   const savedLang = localStorage.getItem('selectedLang') || 'es';
   const langButtons = document.querySelectorAll('.lang-btn');
