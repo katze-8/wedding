@@ -1563,5 +1563,63 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
+// ═══════════════════════════════════════════════════════════
+// LANGUAGE SWITCHER
+// ═══════════════════════════════════════════════════════════
+function setLang(lang, btn) {
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  localStorage.setItem('selectedLang', lang);
+}
+
+// ═══════════════════════════════════════════════════════════
+// TAB NAVIGATION
+// ═══════════════════════════════════════════════════════════
+function setTab(tabName, btn) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-page').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Show selected tab
+  document.getElementById('tab-' + tabName).classList.add('active');
+  
+  // Update button styles
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  
+  // Save preference
+  localStorage.setItem('selectedTab', tabName);
+}
+
+// ═══════════════════════════════════════════════════════════
+// ACCORDION TOGGLE (Gift Categories)
+// ═══════════════════════════════════════════════════════════
+function toggle(element) {
+  element.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RESTORE USER PREFERENCES ON PAGE LOAD
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() {
+  // Restore language
+  const savedLang = localStorage.getItem('selectedLang') || 'es';
+  const langBtn = document.querySelector('.lang-btn[onclick*="' + savedLang + '"]');
+  if (langBtn) {
+    setLang(savedLang, langBtn);
+  }
+  
+  // Restore tab
+  const savedTab = localStorage.getItem('selectedTab') || 'gifts';
+  const tabBtn = document.querySelector('.tab-btn[onclick*="' + savedTab + '"]');
+  if (tabBtn) {
+    setTab(savedTab, tabBtn);
+  }
+});
+</script>
 </body>
 </html>
