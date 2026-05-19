@@ -585,7 +585,19 @@
     flex-shrink: 0;
     margin-right: 4px;
   }
-</style>
+
+  @media (max-width: 500px) {
+    .timeline-card[style*="grid-template-columns:200px"] {
+      grid-template-columns: 1fr !important;
+    }
+    .timeline-card[style*="grid-template-columns:1fr 200px"] {
+      grid-template-columns: 1fr !important;
+    }
+    .timeline-card img[style*="width:200px"] {
+      width: 100% !important;
+      height: 200px !important;
+    }
+  }</style>
 </head>
 <body class="lang-es">
 
@@ -653,6 +665,14 @@
 
   <div class="petal-line">
     <span class="petal-center">🌸</span>
+  </div>
+
+  <div style="display:inline-block;background:var(--white);border:2px solid var(--green);border-radius:50px;padding:10px 28px;margin:0 auto 24px;animation:riseUp 1s .15s ease both;">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.5vw,19px);color:var(--purple-deep);letter-spacing:1px;">
+      <span data-lang-inline="es">💍 29 de Julio · Köln</span>
+      <span data-lang-inline="en">💍 July 29th · Köln</span>
+      <span data-lang-inline="de">💍 29. Juli · Köln</span>
+    </span>
   </div>
 
   <p class="hero-note" data-lang="es">Tu presencia es el mejor regalo. Si deseas obsequiarnos algo, aquí encontrarás ideas para cada posibilidad y presupuesto.</p>
@@ -762,9 +782,9 @@
             Gift Cards
           </div>
           <div class="cat-tagline">
-            <span data-lang-inline="es">Fáciles de enviar</span>
-            <span data-lang-inline="en">Easy to send</span>
-            <span data-lang-inline="de">Einfach zu versenden</span>
+            <span data-lang-inline="es">Útiles y fáciles de enviar</span>
+            <span data-lang-inline="en">Useful and easy to send</span>
+            <span data-lang-inline="de">Nützlich und einfach zu versenden</span>
           </div>
         </div>
         <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
@@ -772,10 +792,19 @@
       <div class="cat-body">
         <div class="cat-body-inner">
           <div class="gc-logos">
-            <a class="gc-logo" href="https://www.amazon.de" target="_blank" rel="noopener">🛒 Amazon</a>
-            <a class="gc-logo" href="https://www.ikea.com/de" target="_blank" rel="noopener">🏠 IKEA</a>
-            <a class="gc-logo" href="https://www.spotify.com/de" target="_blank" rel="noopener">🎵 Spotify</a>
-            <a class="gc-logo" href="https://www.netflix.com/de" target="_blank" rel="noopener">🎬 Netflix</a>
+            <a class="gc-logo" href="https://www.ikea.com/de/de/gift-card/" target="_blank" rel="noopener">🏠 IKEA</a>
+            <a class="gc-logo" href="https://www.bahn.de/angebot/regio/geschenk-gutschein" target="_blank" rel="noopener">🚂 Deutsche Bahn</a>
+            <a class="gc-logo" href="https://www.dm.de/services/dm-gutscheine/" target="_blank" rel="noopener">🧴 dm</a>
+            <a class="gc-logo" href="https://www.rossmann.de/gutscheine" target="_blank" rel="noopener">🌹 Rossmann</a>
+            <a class="gc-logo" href="https://www.rewe.de/service/gutscheine/" target="_blank" rel="noopener">🛒 Rewe</a>
+            <a class="gc-logo" href="https://www.lidl.de/c/geschenkkarte/s10009791" target="_blank" rel="noopener">🟡 Lidl</a>
+            <a class="gc-logo" href="https://www.decathlon.de/content/gutscheine" target="_blank" rel="noopener">🏃 Decathlon</a>
+            <a class="gc-logo" href="https://www.buecher.de/gutscheine/" target="_blank" rel="noopener">📚 bücher.de</a>
+            <a class="gc-logo" href="https://www.thalia.de/shop/home/artikeldetails/A1062905399" target="_blank" rel="noopener">📖 Thalia</a>
+            <a class="gc-logo" href="https://www.mediamarkt.de/de/campaign/geschenkkarte.html" target="_blank" rel="noopener">📱 MediaMarkt</a>
+            <a class="gc-logo" href="https://www.douglas.de/de/c/geschenkkarten/070000" target="_blank" rel="noopener">💄 Douglas</a>
+            <a class="gc-logo" href="https://www.wunschkarte.de" target="_blank" rel="noopener">🎀 wunschkarte.de</a>
+            <a class="gc-logo" href="https://www.gooding.de/shops" target="_blank" rel="noopener">🌟 Más opciones →</a>
           </div>
         </div>
       </div>
@@ -847,9 +876,9 @@
       </div>
       <div class="cat-body">
         <div class="cat-body-inner">
-          <div class="bank-box" data-lang="es">💌 PayPal, Revolut o Wise — escríbenos y te compartimos los datos.</div>
-          <div class="bank-box" data-lang="en">💌 PayPal, Revolut or Wise — message us and we'll share the details.</div>
-          <div class="bank-box" data-lang="de">💌 PayPal, Revolut oder Wise — schreib uns und wir schicken dir die Daten.</div>
+          <div class="bank-box" data-lang="es">💌 Puedes entregarnos un sobre en efectivo el día de la boda, o transferirlo vía PayPal, Revolut o Wise — escríbenos y te compartimos los datos.</div>
+          <div class="bank-box" data-lang="en">💌 You can hand us a cash envelope on the wedding day, or transfer via PayPal, Revolut or Wise — message us and we'll share the details.</div>
+          <div class="bank-box" data-lang="de">💌 Du kannst uns am Hochzeitstag einen Umschlag mit Bargeld überreichen, oder per PayPal, Revolut oder Wise überweisen — schreib uns und wir schicken dir die Daten.</div>
         </div>
       </div>
     </div>
@@ -900,9 +929,18 @@
             <span class="service-tag" data-lang-inline="en">🧑‍🍳 Cooking classes</span>
             <span class="service-tag" data-lang-inline="de">🧑‍🍳 Kochkurs</span>
           </div>
-          <div class="bank-box" style="margin-top:16px;" data-lang="es">💌 Escríbenos para coordinar — estamos abiertos a cualquier sorpresa.</div>
-          <div class="bank-box" style="margin-top:16px;" data-lang="en">💌 Message us to coordinate — we're open to any surprise.</div>
-          <div class="bank-box" style="margin-top:16px;" data-lang="de">💌 Schreib uns zur Koordination — wir freuen uns über jede Überraschung.</div>
+          <div class="help-box" style="margin-top:16px;" data-lang="es">
+            <strong>💬 Hablemos</strong>
+            Si tienes alguna idea de servicio o experiencia en mente, con gusto conversamos contigo. Estamos abiertos a cualquier propuesta con cariño.
+          </div>
+          <div class="help-box" style="margin-top:16px;" data-lang="en">
+            <strong>💬 Let's talk</strong>
+            If you have a service or experience in mind, we'd love to chat about it. We're open to any heartfelt proposal.
+          </div>
+          <div class="help-box" style="margin-top:16px;" data-lang="de">
+            <strong>💬 Lass uns reden</strong>
+            Wenn du eine Idee für eine Dienstleistung oder ein Erlebnis hast, sprechen wir gerne darüber. Wir sind offen für jeden herzlichen Vorschlag.
+          </div>
         </div>
       </div>
     </div>
@@ -1022,6 +1060,196 @@
     </div>
   </div>
 </section>
+
+<!-- WEDDING TRADITIONS SECTION -->
+<section style="max-width:760px;margin:0 auto;padding:0 20px 80px;">
+
+  <div class="floral-divider">
+    <svg viewBox="0 0 28 28" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="14" cy="5" rx="3.5" ry="5"/>
+      <ellipse cx="14" cy="23" rx="3.5" ry="5"/>
+      <ellipse cx="5" cy="14" rx="5" ry="3.5"/>
+      <ellipse cx="23" cy="14" rx="5" ry="3.5"/>
+      <ellipse cx="7.5" cy="7.5" rx="3" ry="4.5" transform="rotate(-45 7.5 7.5)"/>
+      <ellipse cx="20.5" cy="7.5" rx="3" ry="4.5" transform="rotate(45 20.5 7.5)"/>
+      <ellipse cx="7.5" cy="20.5" rx="3" ry="4.5" transform="rotate(45 7.5 20.5)"/>
+      <ellipse cx="20.5" cy="20.5" rx="3" ry="4.5" transform="rotate(-45 20.5 20.5)"/>
+      <circle cx="14" cy="14" r="4"/>
+    </svg>
+  </div>
+
+  <p class="sec-label" style="text-align:center;">
+    <span data-lang-inline="es">El mundo nos une</span>
+    <span data-lang-inline="en">The world unites us</span>
+    <span data-lang-inline="de">Die Welt verbindet uns</span>
+  </p>
+  <h2 class="sec-title" style="text-align:center;margin-bottom:10px;">
+    <span data-lang-inline="es">Vestidos de <em>Boda</em> del Mundo</span>
+    <span data-lang-inline="en">Wedding <em>Attire</em> Around the World</span>
+    <span data-lang-inline="de">Hochzeitskleidung <em>der Welt</em></span>
+  </h2>
+  <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.5vw,18px);font-style:italic;color:var(--muted);margin-bottom:36px;line-height:1.7;">
+    <span data-lang-inline="es">Cada cultura celebra el amor a su manera — con colores, telas y tradiciones únicas que llevan siglos contando historias de unión.</span>
+    <span data-lang-inline="en">Every culture celebrates love in its own way — with colors, fabrics and unique traditions that have told stories of union for centuries.</span>
+    <span data-lang-inline="de">Jede Kultur feiert die Liebe auf ihre eigene Weise — mit Farben, Stoffen und einzigartigen Traditionen, die seit Jahrhunderten Geschichten der Vereinigung erzählen.</span>
+  </p>
+
+  <div style="display:grid;gap:20px;">
+
+    <!-- India -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
+      <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=300&h=280&fit=crop&crop=center" alt="Indian wedding attire" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇮🇳 India</span>
+          <span data-lang-inline="en">🇮🇳 India</span>
+          <span data-lang-inline="de">🇮🇳 Indien</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El sari nupcial</span>
+          <span data-lang-inline="en">The bridal sari</span>
+          <span data-lang-inline="de">Der Brautsari</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">La novia viste un sari rojo bordado en oro, símbolo de prosperidad y amor. El novio lleva sherwani con turbante adornado. Los colores vibrantes y la joyería tradicional hacen de la boda india una celebración de colores sin igual.</p>
+        <p class="timeline-body" data-lang="en">The bride wears a red gold-embroidered sari, symbol of prosperity and love. The groom wears a sherwani with an adorned turban. Vibrant colors and traditional jewelry make an Indian wedding an unparalleled celebration of color.</p>
+        <p class="timeline-body" data-lang="de">Die Braut trägt einen rot-goldbestickten Sari, Symbol für Wohlstand und Liebe. Der Bräutigam trägt einen Sherwani mit geschmücktem Turban. Lebendige Farben und traditioneller Schmuck machen eine indische Hochzeit zu einem einzigartigen Farbfest.</p>
+      </div>
+    </div>
+
+    <!-- Japón -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 200px;" class="tradition-card">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇯🇵 Japón</span>
+          <span data-lang-inline="en">🇯🇵 Japan</span>
+          <span data-lang-inline="de">🇯🇵 Japan</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El shiromuku</span>
+          <span data-lang-inline="en">The shiromuku</span>
+          <span data-lang-inline="de">Das Shiromuku</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">La novia viste el shiromuku, un kimono completamente blanco que simboliza pureza y disposición a adoptar los colores de la nueva familia. El novio viste hakama en gris oscuro. La ceremonia sintoísta une el pasado con el futuro.</p>
+        <p class="timeline-body" data-lang="en">The bride wears the shiromuku, a completely white kimono symbolizing purity and willingness to take on the new family's colors. The groom wears dark gray hakama. The Shinto ceremony connects past with future.</p>
+        <p class="timeline-body" data-lang="de">Die Braut trägt das Shiromuku, einen komplett weißen Kimono, der Reinheit und die Bereitschaft symbolisiert, die Farben der neuen Familie anzunehmen. Der Bräutigam trägt dunkelgraue Hakama. Die shintoistische Zeremonie verbindet Vergangenheit mit Zukunft.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=300&h=280&fit=crop&crop=center" alt="Japanese wedding kimono" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+    </div>
+
+    <!-- Nigeria -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
+      <img src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=300&h=280&fit=crop&crop=center" alt="Nigerian wedding attire" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇳🇬 Nigeria / África Occidental</span>
+          <span data-lang-inline="en">🇳🇬 Nigeria / West Africa</span>
+          <span data-lang-inline="de">🇳🇬 Nigeria / Westafrika</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El aso-oke y gele</span>
+          <span data-lang-inline="en">The aso-oke and gele</span>
+          <span data-lang-inline="de">Das Aso-Oke und Gele</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">La novia yoruba luce un iro (envuelto) y buba (blusa) en tela aso-oke tejida, con un elaborado tocado gele. Los colores del atuendo representan el clan familiar. La boda es una fiesta de comunidad, música y alegría desbordante.</p>
+        <p class="timeline-body" data-lang="en">The Yoruba bride wears a woven aso-oke iro and buba with an elaborate gele headdress. The outfit's colors represent the family clan. The wedding is a celebration of community, music and overflowing joy.</p>
+        <p class="timeline-body" data-lang="de">Die yorubanische Braut trägt ein gewebtes Aso-Oke Iro und Buba mit einem aufwändigen Gele-Kopfschmuck. Die Farben des Outfits repräsentieren den Familienclan. Die Hochzeit ist ein Fest der Gemeinschaft, Musik und überschwänglicher Freude.</p>
+      </div>
+    </div>
+
+    <!-- China -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 200px;" class="tradition-card">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇨🇳 China</span>
+          <span data-lang-inline="en">🇨🇳 China</span>
+          <span data-lang-inline="de">🇨🇳 China</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El qipao rojo</span>
+          <span data-lang-inline="en">The red qipao</span>
+          <span data-lang-inline="de">Der rote Qipao</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">La novia china viste el qipao o cheongsam en rojo carmesí, bordado con fénix y dragones que representan suerte y fortuna. El rojo ahuyenta los malos espíritus. Hoy muchas novias combinan el qipao con un vestido occidental en distintos momentos de la ceremonia.</p>
+        <p class="timeline-body" data-lang="en">The Chinese bride wears a crimson qipao or cheongsam, embroidered with phoenixes and dragons representing luck and fortune. Red wards off evil spirits. Today many brides combine the qipao with a western dress at different points of the ceremony.</p>
+        <p class="timeline-body" data-lang="de">Die chinesische Braut trägt einen karmesinroten Qipao oder Cheongsam, bestickt mit Phönixen und Drachen, die Glück und Reichtum symbolisieren. Rot vertreibt böse Geister. Heute kombinieren viele Bräute den Qipao mit einem westlichen Kleid zu verschiedenen Momenten der Zeremonie.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=300&h=280&fit=crop&crop=center" alt="Chinese wedding dress" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+    </div>
+
+    <!-- México / Latinoamérica -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
+      <img src="https://images.unsplash.com/photo-1602810316693-3667c854239a?w=300&h=280&fit=crop&crop=center" alt="Mexican wedding dress" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇲🇽 México / Latinoamérica</span>
+          <span data-lang-inline="en">🇲🇽 Mexico / Latin America</span>
+          <span data-lang-inline="de">🇲🇽 Mexiko / Lateinamerika</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El traje regional</span>
+          <span data-lang-inline="en">The regional dress</span>
+          <span data-lang-inline="de">Die Regionaltracht</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">En bodas tradicionales mexicanas, la novia puede lucir el huipil bordado a mano con flores, herencia de la tradición indígena. Los colores y los bordados identifican la región de origen. En Latinoamérica conviven las tradiciones blancas europeas con los textiles y colores propios de cada pueblo.</p>
+        <p class="timeline-body" data-lang="en">In traditional Mexican weddings, the bride may wear a hand-embroidered huipil with flowers, inheriting indigenous tradition. Colors and embroidery identify the region of origin. In Latin America, European white traditions coexist with the textiles and colors of each community.</p>
+        <p class="timeline-body" data-lang="de">Bei traditionellen mexikanischen Hochzeiten kann die Braut ein handbesticktes Huipil mit Blumen tragen, ein Erbe der indigenen Tradition. Farben und Stickereien identifizieren die Herkunftsregion. In Lateinamerika koexistieren europäische Weißtraditionen mit den Textilien und Farben jeder Gemeinschaft.</p>
+      </div>
+    </div>
+
+    <!-- Escocia -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 200px;" class="tradition-card">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</span>
+          <span data-lang-inline="en">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</span>
+          <span data-lang-inline="de">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Schottland</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El kilt del clan</span>
+          <span data-lang-inline="en">The clan kilt</span>
+          <span data-lang-inline="de">Der Klan-Kilt</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">El novio escocés viste el kilt con el tartán de su clan familiar, acompañado de sporran y sgian-dubh. La novia lleva un broche con el tartán del esposo como símbolo de unión de familias. Las gaitas acompañan la ceremonia en los verdes paisajes de las Highlands.</p>
+        <p class="timeline-body" data-lang="en">The Scottish groom wears a kilt in his family clan's tartan, accompanied by a sporran and sgian-dubh. The bride wears a brooch with the husband's tartan as a symbol of family union. Bagpipes accompany the ceremony in the green Highland landscapes.</p>
+        <p class="timeline-body" data-lang="de">Der schottische Bräutigam trägt einen Kilt im Tartan seines Familienclans, begleitet von Sporran und Sgian-Dubh. Die Braut trägt eine Brosche mit dem Tartan des Mannes als Symbol der Familienvereinigung. Dudelsäcke begleiten die Zeremonie in den grünen Hochlandlandschaften.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1580639560819-20ffcded4bb0?w=300&h=280&fit=crop&crop=center" alt="Scottish kilt wedding" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+    </div>
+
+    <!-- Corea -->
+    <div class="timeline-card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:200px 1fr;" class="tradition-card">
+      <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=300&h=280&fit=crop&crop=center" alt="Korean hanbok wedding" style="width:200px;height:100%;object-fit:cover;min-height:200px;">
+      <div style="padding:24px 28px;">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;">
+          <span data-lang-inline="es">🇰🇷 Corea</span>
+          <span data-lang-inline="en">🇰🇷 Korea</span>
+          <span data-lang-inline="de">🇰🇷 Korea</span>
+        </div>
+        <h3 class="timeline-title">
+          <span data-lang-inline="es">El hanbok nupcial</span>
+          <span data-lang-inline="en">The bridal hanbok</span>
+          <span data-lang-inline="de">Das Braut-Hanbok</span>
+        </h3>
+        <p class="timeline-body" data-lang="es">La novia coreana luce un hanbok en colores vivos — rojo, verde y azul — con jeogori (chaqueta corta) y chima (falda amplia). El novio viste el groom hanbok en tonos más sobrios. El paebaek, ritual de reverencias, celebra la unión de dos familias con vino de pino.</p>
+        <p class="timeline-body" data-lang="en">The Korean bride wears a hanbok in bright colors — red, green and blue — with a jeogori (short jacket) and chima (full skirt). The groom wears a more subdued hanbok. The paebaek, a bowing ritual, celebrates the union of two families with pine wine.</p>
+        <p class="timeline-body" data-lang="de">Die koreanische Braut trägt ein Hanbok in leuchtenden Farben — Rot, Grün und Blau — mit einem Jeogori (kurze Jacke) und Chima (weiter Rock). Der Bräutigam trägt ein gedämpfteres Hanbok. Das Paebaek, ein Verbeugungsritual, feiert die Vereinigung zweier Familien mit Kiefernwein.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Closing note -->
+  <div style="text-align:center;margin-top:48px;padding:32px 24px;background:linear-gradient(135deg,var(--lilac),var(--green-pale));border-radius:20px;border:1px solid rgba(74,124,89,.2);">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);font-style:italic;color:var(--purple-deep);line-height:1.6;">
+      <span data-lang-inline="es">"El amor habla todos los idiomas<br/>y se viste de todos los colores"</span>
+      <span data-lang-inline="en">"Love speaks every language<br/>and dresses in every color"</span>
+      <span data-lang-inline="de">"Liebe spricht jede Sprache<br/>und kleidet sich in jede Farbe"</span>
+    </p>
+    <p style="margin-top:12px;font-size:11px;letter-spacing:2px;color:var(--green);">— Andrea &amp; César · Köln · 29.07.2026</p>
+  </div>
+
+</section>
+
 </div>
 
 <!-- FOOTER -->
